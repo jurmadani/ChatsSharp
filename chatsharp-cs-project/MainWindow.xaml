@@ -3,10 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:chatsharp_cs_project"
+        xmlns:local="clr-namespace:chatsharp_cs_project" xmlns:View="clr-namespace:chatsharp_cs_project.View"
         mc:Ignorable="d"
-        Title="ChatSharp" Height="450" Width="800">
+        Title="ChatSharp" Height="650" Width="1200"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Icon="C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\Images\LogoFinalVersion.png">
     <Grid>
-
+        <View:LoginView Margin="0,-10,0,10"/>
     </Grid>
 </Window>

@@ -38,9 +38,6 @@ namespace chatsharp_cs_project
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.Show();
 
-            FirebaseAuthProvider firebaseAuthProvider = _host.Services.GetRequiredService<FirebaseAuthProvider>();
-            firebaseAuthProvider.CreateUserWithEmailAndPasswordAsync("daniel@yahoo.com", "Test123!");
-
             base.OnStartup(e);
         }
 

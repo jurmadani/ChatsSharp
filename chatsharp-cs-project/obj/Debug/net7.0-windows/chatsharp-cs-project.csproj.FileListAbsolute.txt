@@ -53,3 +53,12 @@ C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\D
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\LiteDB.dll
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\System.Reactive.dll
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\System.Runtime.InteropServices.WindowsRuntime.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\PasswordBoxMVVM.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\RegisterView.g.cs
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\RegisterView.baml
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\LoginView.g.cs
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\LoginView.baml
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\MahApps.Metro.IconPacks.Core.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\MahApps.Metro.IconPacks.Material.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\ButtonTheme.baml
