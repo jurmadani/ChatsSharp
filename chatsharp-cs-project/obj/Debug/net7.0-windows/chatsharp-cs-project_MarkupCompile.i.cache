@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\App.xaml
-4316401842
+3-875975857
 
 71460887171
 2331763536254
-ButtonTheme.xaml;MainWindow.xaml;View\LoginView.xaml;View\RegisterView.xaml;
+MainWindow.xaml;View\LoginView.xaml;View\RegisterView.xaml;
 
-False
+True
 

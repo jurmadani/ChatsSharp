@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:chatsharp_cs_project.View" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1200"
-             Background="Transparent">
+             Background="Transparent"> 
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -38,7 +38,7 @@
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White"
                                                 Margin="330 0 0 -240"/>
-                    <TextBlock FontFamily="Helvetica"
+                    <TextBox FontFamily="Helvetica"
                                FontWeight="Light"
                                Text="Username"
                                FontSize="30"
@@ -47,6 +47,7 @@
                                Width="236"
                                Opacity="0.6"
                                Margin="-120 100 0 0"
+                               BorderThickness="0"
                                />
                     <Border Width="350"
                             Height="2"
