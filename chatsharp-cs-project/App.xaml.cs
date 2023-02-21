@@ -9,6 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Firebase.Auth;
+using chatsharp_cs_project.ViewModel;
 
 namespace chatsharp_cs_project
 {
@@ -28,7 +29,12 @@ namespace chatsharp_cs_project
 
                 ServiceCollection.AddSingleton(new FirebaseAuthProvider(new FirebaseConfig(FireBaseApiKey)));
 
-                ServiceCollection.AddSingleton<MainWindow>((services) => new MainWindow());
+                ServiceCollection.AddSingleton<MainWindow>((services) => new MainWindow()
+                {
+                    DataContext = new RegisterViewModel(services.GetRequiredService<FirebaseAuthProvider>())
+
+                });
+
 
             }).Build();
         }
