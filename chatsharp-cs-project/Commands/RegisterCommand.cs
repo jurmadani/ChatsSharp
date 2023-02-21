@@ -1,6 +1,7 @@
 ﻿using chatsharp_cs_project.ViewModel;
 using Firebase.Auth;
 using MVVMEssentials.Commands;
+using MVVMEssentials.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,13 @@ namespace chatsharp_cs_project.Commands
     {
         private readonly RegisterViewModel _registerViewModel;
         private readonly FirebaseAuthProvider _firebaseAuthProvider;
+        private readonly INavigationService _loginNavigationService;
 
-        public RegisterCommand(RegisterViewModel registerViewModel, FirebaseAuthProvider firebaseAuthProvider)
+        public RegisterCommand(RegisterViewModel registerViewModel, FirebaseAuthProvider firebaseAuthProvider,INavigationService loginNavigationSerivce)
         {
             _registerViewModel = registerViewModel;
             _firebaseAuthProvider = firebaseAuthProvider;
+            _loginNavigationService =  loginNavigationSerivce;
         }
 
         protected override async Task ExecuteAsync(object parameter)
@@ -36,12 +39,12 @@ namespace chatsharp_cs_project.Commands
                 await _firebaseAuthProvider.CreateUserWithEmailAndPasswordAsync(_registerViewModel.Email, _registerViewModel.Password);
                 MessageBox.Show("Succesfully registered", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                //navigate to login
+                _loginNavigationService.Navigate();
 
             }
             catch(Exception)
             {
-                MessageBox.Show("Registration failed. Please try again later.", "Error", MessageBoxButton.OK,MessageBoxImage.Error);
+                MessageBox.Show("Registration failed. Please check your information or try again later.", "Error", MessageBoxButton.OK,MessageBoxImage.Error);
             }
         }
     }

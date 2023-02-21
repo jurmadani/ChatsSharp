@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using chatsharp_cs_project.Commands;
 using Firebase.Auth;
+using MVVMEssentials.Commands;
 
 namespace chatsharp_cs_project.ViewModel
 {
@@ -52,9 +53,10 @@ namespace chatsharp_cs_project.ViewModel
         public ICommand SubmitCommand { get;}
         public ICommand NavigateLoginCommand { get;}
 
-        public RegisterViewModel(FirebaseAuthProvider firebaseAuthProvider)
+        public RegisterViewModel(FirebaseAuthProvider firebaseAuthProvider, MVVMEssentials.Services.INavigationService loginNavigationService)
         {
-            SubmitCommand = new RegisterCommand(this,firebaseAuthProvider);
+            SubmitCommand = new RegisterCommand(this,firebaseAuthProvider,loginNavigationService);
+            NavigateLoginCommand = new NavigateCommand(loginNavigationService);
         }
     }
 }

@@ -3,7 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:chatsharp_cs_project" xmlns:View="clr-namespace:chatsharp_cs_project.View"
+        xmlns:local="clr-namespace:chatsharp_cs_project" 
+        xmlns:View="clr-namespace:chatsharp_cs_project.View"
+        xmlns:vms="clr-namespace:chatsharp_cs_project.ViewModel"
         mc:Ignorable="d"
         Title="ChatSharp" Height="650" Width="1200"
         AllowsTransparency="True"
@@ -12,6 +14,15 @@
         ResizeMode="NoResize"
         Icon="C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\Images\LogoFinalVersion.png">
     <Grid>
-        <View:RegisterView Margin="0,-10,0,10"/>
+        <ContentControl Content="{Binding CurrentViewModel}" Margin="0,-10,0,10">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type vms:RegisterViewModel}">
+                    <View:RegisterView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:LoginViewModel}">
+                    <View:LoginView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
     </Grid>
 </Window>

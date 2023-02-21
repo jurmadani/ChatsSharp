@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:chatsharp_cs_project.View" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:local="clr-namespace:chatsharp_cs_project.View" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:components="clr-namespace:PasswordBoxMVVM.Components;assembly=PasswordBoxMVVM"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1200"
              Background="Transparent"> 
@@ -33,14 +33,14 @@
                                HorizontalAlignment="Center"
                                Margin="0 -40"/>
 
-                    <iconPacks:PackIconMaterial Kind="Account" 
+                    <iconPacks:PackIconMaterial Kind="Email" 
                                                 VerticalAlignment="Center" 
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White"
                                                 Margin="330 0 0 -240"/>
                     <TextBox FontFamily="Helvetica"
                                FontWeight="Light"
-                               Text="Username"
+                               Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
                                FontSize="30"
                                Foreground="White"
                                Background="Transparent"
@@ -62,23 +62,22 @@
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White"
                                                 Margin="330 0 0 -240"/>
-                    <PasswordBox FontFamily="Helvetica"
+                    <components:BindablePasswordBox 
+                               FontFamily="Helvetica"
                                FontWeight="Light"
-                               Password="Password"
+                               Password="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
                                FontSize="30"
-                               Foreground="White"
                                Background="Transparent"
-                               BorderThickness="0"
-                                 HorizontalContentAlignment="Left"
-                               Width="236"
+                                 HorizontalAlignment="Center"
+                               Width="310"
                                Opacity="0.6"
-                               Margin="-120 100 0 0"
+                               Margin="-35 100 0 0"
                                />
                     <Border Width="350"
                             Height="2"
                             Background="White"
                             Opacity="0.6"
-                            Margin="0 0 0 0"
+                            Margin="0 3 0 0"
                             
                     />
                     <StackPanel>
@@ -89,6 +88,7 @@
                                     FontWeight="Light"
                                     Background="#252525"
                                     BorderThickness="0" Margin="-1,0,-1,0"
+                                    Command="{Binding SubmitCommand}"
                                     
                                     />
 
@@ -102,6 +102,7 @@
                                     FontWeight="Light"
                                     Background="#252525"
                                     BorderThickness="0" Margin="0,0,-1,0"
+                                    Command="{Binding NavigateRegisterCommand}"
                                     
                                     />
 

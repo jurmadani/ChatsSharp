@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using Firebase.Auth;
 using chatsharp_cs_project.ViewModel;
+using MVVMEssentials.Stores;
+using MVVMEssentials.ViewModels;
+using MVVMEssentials.Services;
 
 namespace chatsharp_cs_project
 {
@@ -29,9 +32,24 @@ namespace chatsharp_cs_project
 
                 ServiceCollection.AddSingleton(new FirebaseAuthProvider(new FirebaseConfig(FireBaseApiKey)));
 
+                ServiceCollection.AddSingleton<NavigationStore>();
+                ServiceCollection.AddSingleton<ModalNavigationStore>();
+
+                ServiceCollection.AddSingleton<NavigationService<RegisterViewModel>>(
+                    (services) => new NavigationService<RegisterViewModel>(services.GetRequiredService<NavigationStore>(),
+                    () => new RegisterViewModel(services.GetRequiredService<FirebaseAuthProvider>(),
+                    services.GetRequiredService<NavigationService<LoginViewModel>>())));
+
+                ServiceCollection.AddSingleton<NavigationService<LoginViewModel>>(
+                    (services) => new NavigationService<LoginViewModel>(services.GetRequiredService<NavigationStore>(),
+                    () => new LoginViewModel(services.GetRequiredService<FirebaseAuthProvider>(),
+                    services.GetRequiredService<NavigationService<RegisterViewModel>>())));
+
+                ServiceCollection.AddSingleton<MainViewModel>();
+
                 ServiceCollection.AddSingleton<MainWindow>((services) => new MainWindow()
                 {
-                    DataContext = new RegisterViewModel(services.GetRequiredService<FirebaseAuthProvider>())
+                    DataContext = services.GetRequiredService<MainViewModel>()
 
                 });
 
@@ -41,6 +59,10 @@ namespace chatsharp_cs_project
 
         protected override void OnStartup(StartupEventArgs e)
         {
+
+            var navigationService = _host.Services.GetRequiredService<NavigationService<LoginViewModel>>();
+            navigationService.Navigate();
+
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.Show();
 
