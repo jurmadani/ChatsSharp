@@ -13,6 +13,7 @@ using chatsharp_cs_project.ViewModel;
 using MVVMEssentials.Stores;
 using MVVMEssentials.ViewModels;
 using MVVMEssentials.Services;
+using chatsharp_cs_project.View;
 
 namespace chatsharp_cs_project
 {
@@ -43,7 +44,18 @@ namespace chatsharp_cs_project
                 ServiceCollection.AddSingleton<NavigationService<LoginViewModel>>(
                     (services) => new NavigationService<LoginViewModel>(services.GetRequiredService<NavigationStore>(),
                     () => new LoginViewModel(services.GetRequiredService<FirebaseAuthProvider>(),
-                    services.GetRequiredService<NavigationService<RegisterViewModel>>())));
+                    services.GetRequiredService<NavigationService<RegisterViewModel>>(),
+                    services.GetRequiredService<NavigationService<HomeViewModel>>())));
+
+                ServiceCollection.AddSingleton<NavigationService<HomeViewModel>>(
+                    (services) => new NavigationService<HomeViewModel>(services.GetRequiredService<NavigationStore>(),
+                    () => new HomeViewModel()));
+
+                ServiceCollection.AddSingleton<NavigationService<SplashScreenViewModel>>(
+                   (services) => new NavigationService<SplashScreenViewModel>(services.GetRequiredService<NavigationStore>(),
+                   () => new SplashScreenViewModel(services.GetRequiredService<NavigationService<LoginViewModel>>())));
+
+
 
                 ServiceCollection.AddSingleton<MainViewModel>();
 
@@ -60,7 +72,7 @@ namespace chatsharp_cs_project
         protected override void OnStartup(StartupEventArgs e)
         {
 
-            var navigationService = _host.Services.GetRequiredService<NavigationService<LoginViewModel>>();
+            var navigationService = _host.Services.GetRequiredService<NavigationService<SplashScreenViewModel>>();
             navigationService.Navigate();
 
             MainWindow = _host.Services.GetRequiredService<MainWindow>();

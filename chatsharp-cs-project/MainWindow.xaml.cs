@@ -23,6 +23,7 @@ namespace chatsharp_cs_project
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
     }
 }

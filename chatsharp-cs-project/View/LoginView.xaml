@@ -41,7 +41,7 @@
                     <TextBox FontFamily="Helvetica"
                                FontWeight="Light"
                                Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
-                               FontSize="30"
+                               FontSize="23"
                                Foreground="White"
                                Background="Transparent"
                                Width="236"

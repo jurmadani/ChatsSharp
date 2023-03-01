@@ -61,3 +61,7 @@ C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\D
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\LoginView.baml
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\MahApps.Metro.IconPacks.Core.dll
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\MahApps.Metro.IconPacks.Material.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\HomeView.g.cs
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\HomeView.baml
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\SplashScreenView.g.cs
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\SplashScreenView.baml

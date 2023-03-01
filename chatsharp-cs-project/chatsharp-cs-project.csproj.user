@@ -7,10 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\HomeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\RegisterView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\SplashScreenView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -18,10 +24,16 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\HomeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\RegisterView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\SplashScreenView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

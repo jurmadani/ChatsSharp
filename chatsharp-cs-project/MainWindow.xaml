@@ -22,6 +22,12 @@
                 <DataTemplate DataType="{x:Type vms:LoginViewModel}">
                     <View:LoginView/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:HomeViewModel}">
+                    <View:HomeView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:SplashScreenViewModel}">
+                    <View:SplashScreenView/>
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </Grid>

@@ -1,6 +1,7 @@
 ﻿using chatsharp_cs_project.Commands;
 using Firebase.Auth;
 using MVVMEssentials.Commands;
+using MVVMEssentials.Services;
 using MVVMEssentials.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -40,9 +41,11 @@ namespace chatsharp_cs_project.ViewModel
 
         public ICommand NavigateRegisterCommand { get; }
 
-        public LoginViewModel(FirebaseAuthProvider firebaseAuthProvider, MVVMEssentials.Services.INavigationService registerNavigationService)
+        public LoginViewModel(FirebaseAuthProvider firebaseAuthProvider, 
+                              MVVMEssentials.Services.INavigationService registerNavigationService,
+                              INavigationService homeNavigationService)
         {
-            SubmitCommand = new LoginCommand(this, firebaseAuthProvider);
+            SubmitCommand = new LoginCommand(this, firebaseAuthProvider,homeNavigationService);
             NavigateRegisterCommand = new NavigateCommand(registerNavigationService);
         }
 
