@@ -24,6 +24,8 @@ namespace chatsharp_cs_project.View
         {
             InitializeComponent();
         }
+
+        /*
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             Window window = Window.GetWindow(this);
@@ -50,6 +52,38 @@ namespace chatsharp_cs_project.View
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+      */
+        private void panelControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            if (window != null && e.LeftButton == MouseButtonState.Pressed)
+            {
+                window.DragMove();
+            }
+        }
+
+        private void buttonClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void panelControlBar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
+        }
+
+        private void buttonMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+
+        private void buttonMaximize_Click(object sender, RoutedEventArgs e)
+        {
+            if (Application.Current.MainWindow.WindowState != WindowState.Maximized)
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
+            else
+                Application.Current.MainWindow.WindowState = WindowState.Normal;
         }
     }
 }

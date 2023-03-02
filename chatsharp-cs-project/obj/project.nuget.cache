@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "6lj3k/obo32oSRToxph1vRmne1/Etletl+fxTZToJx5nbIYi1JxnrsIxfUkHcZxVIcYUV+zJEHFvJLOaA7U1Qw==",
+  "dgSpecHash": "klUypX3Fg64QkU6G99XDXL8iYNrM+eDr2RQYxry2KsYh6HZ3yzmvLae6vFlrZS90LOsmu42Sbpxaetx8E3a15g==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dani Jurma\\source\\repos\\chatsharp-cs-project\\chatsharp-cs-project\\chatsharp-cs-project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dani Jurma\\.nuget\\packages\\firebaseauthentication.net\\3.7.2\\firebaseauthentication.net.3.7.2.nupkg.sha512",
     "C:\\Users\\Dani Jurma\\.nuget\\packages\\firebasedatabase.net\\4.2.0\\firebasedatabase.net.4.2.0.nupkg.sha512",
+    "C:\\Users\\Dani Jurma\\.nuget\\packages\\fontawesome.sharp\\6.2.1\\fontawesome.sharp.6.2.1.nupkg.sha512",
     "C:\\Users\\Dani Jurma\\.nuget\\packages\\litedb\\4.1.4\\litedb.4.1.4.nupkg.sha512",
     "C:\\Users\\Dani Jurma\\.nuget\\packages\\mahapps.metro.iconpacks.material\\4.11.0\\mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
     "C:\\Users\\Dani Jurma\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",

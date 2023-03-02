@@ -72,7 +72,7 @@ namespace chatsharp_cs_project
         protected override void OnStartup(StartupEventArgs e)
         {
 
-            var navigationService = _host.Services.GetRequiredService<NavigationService<SplashScreenViewModel>>();
+            var navigationService = _host.Services.GetRequiredService<NavigationService<SplashScreenViewModel>>(); // WHEN APP IS FINISHED -> THE ONSTARTUP SHOULD INVOKE SPLASHSCREENVIEWMODEL 
             navigationService.Navigate();
 
             MainWindow = _host.Services.GetRequiredService<MainWindow>();

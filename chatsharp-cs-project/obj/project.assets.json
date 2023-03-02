@@ -33,6 +33,18 @@
           }
         }
       },
+      "FontAwesome.Sharp/6.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
       "LiteDB/4.1.4": {
         "type": "package",
         "dependencies": {
@@ -2027,6 +2039,21 @@
         "firebasedatabase.net.nuspec",
         "lib/netstandard2.0/Firebase.dll",
         "lib/netstandard2.0/Firebase.xml"
+      ]
+    },
+    "FontAwesome.Sharp/6.2.1": {
+      "sha512": "eYpj85+70pOjV4cOfB/Et/Rj6m56WRlCKU2G4ivWCohb7sF7DwHz/3jy8XIWp9utgb/R2Pqm+HsaBwV33FBNbg==",
+      "type": "package",
+      "path": "fontawesome.sharp/6.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontawesome.sharp.6.2.1.nupkg.sha512",
+        "fontawesome.sharp.nuspec",
+        "lib/net472/FontAwesome.Sharp.dll",
+        "lib/net48/FontAwesome.Sharp.dll",
+        "lib/net6.0-windows7.0/FontAwesome.Sharp.dll",
+        "lib/netcoreapp3.1/FontAwesome.Sharp.dll"
       ]
     },
     "LiteDB/4.1.4": {
@@ -6219,6 +6246,7 @@
     "net7.0-windows7.0": [
       "FirebaseAuthentication.net >= 3.7.2",
       "FirebaseDatabase.net >= 4.2.0",
+      "FontAwesome.Sharp >= 6.2.1",
       "MVVMEssentials.WPF >= 1.0.3",
       "MahApps.Metro.IconPacks.Material >= 4.11.0",
       "Microsoft.Extensions.Hosting >= 6.0.1",
@@ -6277,6 +6305,10 @@
           "FirebaseDatabase.net": {
             "target": "Package",
             "version": "[4.2.0, )"
+          },
+          "FontAwesome.Sharp": {
+            "target": "Package",
+            "version": "[6.2.1, )"
           },
           "MVVMEssentials.WPF": {
             "target": "Package",

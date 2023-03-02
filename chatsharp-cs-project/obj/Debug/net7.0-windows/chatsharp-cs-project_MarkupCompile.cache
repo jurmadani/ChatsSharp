@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\App.xaml
-5-826742788
+7-520703929
 
 13371347348
-2331763536254
-MainWindow.xaml;View\HomeView.xaml;View\LoginView.xaml;View\RegisterView.xaml;View\SplashScreenView.xaml;
+243-1954288011
+MainWindow.xaml;Styles\HomeViewButtonStyles.xaml;Styles\UIColors.xaml;View\HomeView.xaml;View\LoginView.xaml;View\RegisterView.xaml;View\SplashScreenView.xaml;
 
 False
 

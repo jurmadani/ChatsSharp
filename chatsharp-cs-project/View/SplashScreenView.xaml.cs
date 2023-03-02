@@ -29,10 +29,10 @@ namespace chatsharp_cs_project.View
             for (int i = 0; i <= 100; i++)
             {
                 LoadingBarSplashScreen.Value = i;
-                await Task.Delay(25);
+                await Task.Delay(16);
                 if (LoadingBarSplashScreen.Value == 100)
                 {
-                    await Task.Delay(1000);
+                    await Task.Delay(250);
                     GoToLoginButton.Command.Execute(GoToLoginButton.CommandParameter);
                     Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
 

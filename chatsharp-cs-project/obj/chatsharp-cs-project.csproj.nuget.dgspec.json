@@ -53,6 +53,10 @@
               "target": "Package",
               "version": "[4.2.0, )"
             },
+            "FontAwesome.Sharp": {
+              "target": "Package",
+              "version": "[6.2.1, )"
+            },
             "MVVMEssentials.WPF": {
               "target": "Package",
               "version": "[1.0.3, )"
