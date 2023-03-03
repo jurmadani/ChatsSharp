@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\App.xaml
-8464524438
+9-1149679306
 
-14-216394118
+171342942369
 243-1954288011
-CustomControls\BindablePasswordBox.xaml;MainWindow.xaml;Styles\HomeViewButtonStyles.xaml;Styles\UIColors.xaml;View\HomeView.xaml;View\LoginView.xaml;View\RegisterView.xaml;View\SplashScreenView.xaml;
+CustomControls\BindablePasswordBox.xaml;MainWindow.xaml;Styles\HomeViewButtonStyles.xaml;Styles\UIColors.xaml;View\HomePageView.xaml;View\HomeView.xaml;View\LoginView.xaml;View\RegisterView.xaml;View\SplashScreenView.xaml;
 
 False
 
