@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:chatsharp_cs_project.View" xmlns:components="clr-namespace:PasswordBoxMVVM.Components;assembly=PasswordBoxMVVM"
-             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:customcontrols="clr-namespace:chatsharp_cs_project.CustomControls"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1200"
              Background="Transparent">
@@ -88,23 +88,16 @@
                                             Margin="320 -20 0 0"/>
             </StackPanel>
             <StackPanel Grid.RowSpan="2">
-                <components:BindablePasswordBox 
-                    Background="Transparent"
-                    Password="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
+                <customcontrols:BindablePasswordBox 
+                    Password="{Binding Password, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                            Margin="-30 310 0 0"
-                           HorizontalAlignment="Center"
-                           FontFamily="helvetica"
-                           FontSize="20"
-                           FontWeight="Light"
                            Width="313"
-                           Opacity="0.66"
-                            
                     />
                 <Border Width="350"
                             Height="2"
                             Background="White"
                             Opacity="0.6"
-                            Margin="0 0 0 0"
+                            Margin="0 0 0 -10"
                     />
                 <iconPacks:PackIconMaterial Kind="FormTextboxPassword" 
                                                 HorizontalAlignment="Center" 
@@ -113,22 +106,15 @@
             </StackPanel>
 
             <StackPanel Grid.RowSpan="2">
-                <components:BindablePasswordBox 
-                    Password="{Binding ConfirmPassword, UpdateSourceTrigger=PropertyChanged}"
+                <customcontrols:BindablePasswordBox 
+                    Password="{Binding ConfirmPassword, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
                            Margin="-30 370 0 0"
-                           HorizontalAlignment="Center"
-                           FontFamily="helvetica"
-                           FontSize="20"
-                           Foreground="White"
-                           Background="Transparent"
-                           FontWeight="Light"
-                           Opacity="0.66"
-                         BorderThickness="0" Width="313"/>
+                           Width="313"/>
                 <Border Width="350"
                             Height="2"
                             Background="White"
                             Opacity="0.6"
-                            Margin="0 0 0 0"
+                            Margin="0 0 0 -10"
                     />
                 <iconPacks:PackIconMaterial Kind="FormTextboxPassword" 
                                                 HorizontalAlignment="Center" 

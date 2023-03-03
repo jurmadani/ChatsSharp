@@ -69,3 +69,5 @@ C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\D
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\App.baml
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\Styles\HomeViewButtonStyles.baml
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\FontAwesome.Sharp.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\CustomControls\BindablePasswordBox.g.cs
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\CustomControls\BindablePasswordBox.baml
