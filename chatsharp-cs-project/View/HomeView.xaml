@@ -4,12 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:chatsharp_cs_project.View" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" xmlns:viewmodel="clr-namespace:chatsharp_cs_project.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:HomeViewModel}"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" 
+             xmlns:viewmodel="clr-namespace:chatsharp_cs_project.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:HomeViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1200">
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type viewmodel:HomePageViewModel}">
             <local:HomePageView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:ViewProfileViewModel}">
+            <local:ViewProfileView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:FriendsViewModel}">
+            <local:FriendsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:MessagesViewModel}">
+            <local:MessagesView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:GroupsViewModel}">
+            <local:GroupsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:SettingsViewModel}">
+            <local:SettingsView/>
         </DataTemplate>
     </UserControl.Resources>
 
@@ -58,7 +75,9 @@
 
                     <!--Menu buttons-->
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="White">
+                                 Tag="White"
+                                 IsChecked="True"
+                                 Command="{Binding ShowHomeViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
@@ -66,7 +85,8 @@
                     </RadioButton>
                     
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="White">
+                                 Tag="White"
+                                 Command="{Binding ShowFriendsViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="UserFriends" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Friends" Style="{StaticResource menuButtonText}"/>
@@ -74,7 +94,8 @@
                     </RadioButton>
                     
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="White">
+                                 Tag="White"
+                                 Command="{Binding ShowMessagesViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Message" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Messages" Style="{StaticResource menuButtonText}"/>
@@ -82,7 +103,8 @@
                     </RadioButton>
                     
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="White">
+                                 Tag="White"
+                                 Command="{Binding ShowGroupsViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="LayerGroup" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Groups" Style="{StaticResource menuButtonText}"/>
@@ -90,7 +112,8 @@
                     </RadioButton>
                     
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="White">
+                                 Tag="White"
+                                 Command="{Binding ShowSettingsViewCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Tools" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
@@ -170,12 +193,14 @@
                          
                             <Menu Background="Transparent" Height="23" Foreground="White">
                                 <MenuItem Header="{Binding Username, Mode=OneWay}" FontWeight="Bold" Margin="0 3 0 0">
-                                    <MenuItem Header="View Profile" Foreground="Black" Background="Transparent" FontWeight="Normal">
+                                    <MenuItem Header="View Profile" Foreground="Black" Background="Transparent" FontWeight="Normal"
+                                              Command="{Binding ShowViewProfileViewCommand}">
                                         <MenuItem.Icon>
                                             <fa:IconImage Icon="UserFriends"/>
                                         </MenuItem.Icon>
                                     </MenuItem>
-                                    <MenuItem Header="Logout" Foreground="Black" Background="Transparent" FontWeight="Normal">
+                                    <MenuItem Header="Logout" Foreground="Black" Background="Transparent" FontWeight="Normal"
+                                              Command="{Binding LogoutCommand}">
                                         <MenuItem.Icon>
                                             <fa:IconImage Icon="SignOut"/>
                                         </MenuItem.Icon>

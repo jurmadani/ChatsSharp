@@ -17,10 +17,8 @@ namespace chatsharp_cs_project.ViewModel
 
 
         private readonly AuthenticationStore _authenticationStore;
-        public string Username => _authenticationStore.CurrentUser?.Email ?? "Unknown";
+        public string Username => "admin@yahoo.com";//_authenticationStore.CurrentUser?.Email ?? "Unknown";
         private ViewModelBase _currentChildView;
-        private string _caption;
-        private IconChar _icon;
 
         public ViewModelBase CurrentChildView { get => _currentChildView;
             set
@@ -28,36 +26,63 @@ namespace chatsharp_cs_project.ViewModel
                 _currentChildView= value;
                 OnPropertyChanged(nameof(CurrentChildView));
             } }
-        public string Caption { get => _caption; 
-            set
-            {
-                _caption = value;
-                OnPropertyChanged(nameof(Caption));
-
-            }
-        }
-        public IconChar Icon { get => _icon; set
-            {
-                _icon= value;
-                OnPropertyChanged(nameof(Icon));
-            }
-        }
         public ICommand ShowHomeViewCommand { get; }
+        public ICommand ShowViewProfileViewCommand { get; }
         public ICommand ShowFriendsViewCommand { get; }
+        public ICommand ShowMessagesViewCommand { get; }
+        public ICommand ShowGroupsViewCommand { get; }
+        public ICommand ShowSettingsViewCommand { get; }
+        public ICommand LogoutCommand { get; }
 
         public HomeViewModel(AuthenticationStore authenticationStore)
         {
             _authenticationStore = authenticationStore;
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
+            ShowViewProfileViewCommand = new ViewModelCommand(ExecuteShowViewProfileCommand);
+            ShowFriendsViewCommand = new ViewModelCommand(ExecuteShowFriendsViewCommand);
+            ShowMessagesViewCommand = new ViewModelCommand(ExecuteShowMessagesViewCommand);
+            ShowGroupsViewCommand = new ViewModelCommand(ExecuteShowGroupsViewCommand);
+            ShowSettingsViewCommand = new ViewModelCommand(ExecuteShowSettingsViewCommand);
+            LogoutCommand = new ViewModelCommand(LogoutFunction);
             ExecuteShowHomeViewCommand(null);
+        }
+
+        private void LogoutFunction(object obj)
+        {
+            MessageBox.Show("LOGOUT SUCCESFULLY");
+            Application.Current.Shutdown();
         }
 
         private void ExecuteShowHomeViewCommand(object obj)
         {
             CurrentChildView = new HomePageViewModel();
-            Caption = "Home";
-            Icon = IconChar.Home;
         }
+
+        private void ExecuteShowViewProfileCommand(object obj)
+        {
+            CurrentChildView = new ViewProfileViewModel();
+        }
+
+        private void ExecuteShowFriendsViewCommand(object obj)
+        {
+            CurrentChildView = new FriendsViewModel();
+        }
+
+        private void ExecuteShowMessagesViewCommand(object obj)
+        {
+            CurrentChildView = new MessagesViewModel();
+        }
+
+        private void ExecuteShowGroupsViewCommand(object obj)
+        {
+            CurrentChildView = new GroupsViewModel();
+        }
+
+        private void ExecuteShowSettingsViewCommand(object obj)
+        {
+            CurrentChildView = new SettingsViewModel();
+        }
+
 
     }
 }

@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\FriendsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\GroupsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\HomePageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -16,10 +22,19 @@
     <Compile Update="View\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\MessagesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\RegisterView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\SettingsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\SplashScreenView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ViewProfileView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -33,6 +48,12 @@
     <Page Update="Styles\UIColors.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\FriendsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\GroupsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\HomePageView.xaml">
       <SubType>Designer</SubType>
     </Page>
@@ -42,10 +63,19 @@
     <Page Update="View\LoginView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\MessagesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\RegisterView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\SettingsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\SplashScreenView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ViewProfileView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

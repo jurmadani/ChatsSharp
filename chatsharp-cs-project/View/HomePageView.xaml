@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:chatsharp_cs_project.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        
-    </Grid>
+    <Border Background="Transparent">
+        <TextBlock Text="Coming soon - HOME PAGE VIEW" FontSize="35" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+    </Border>
 </UserControl>
