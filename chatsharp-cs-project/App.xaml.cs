@@ -14,6 +14,7 @@ using MVVMEssentials.Stores;
 using MVVMEssentials.ViewModels;
 using MVVMEssentials.Services;
 using chatsharp_cs_project.View;
+using chatsharp_cs_project.Stores;
 
 namespace chatsharp_cs_project
 {
@@ -35,6 +36,7 @@ namespace chatsharp_cs_project
 
                 ServiceCollection.AddSingleton<NavigationStore>();
                 ServiceCollection.AddSingleton<ModalNavigationStore>();
+                ServiceCollection.AddSingleton<AuthenticationStore>();
 
                 ServiceCollection.AddSingleton<NavigationService<RegisterViewModel>>(
                     (services) => new NavigationService<RegisterViewModel>(services.GetRequiredService<NavigationStore>(),
@@ -43,13 +45,13 @@ namespace chatsharp_cs_project
 
                 ServiceCollection.AddSingleton<NavigationService<LoginViewModel>>(
                     (services) => new NavigationService<LoginViewModel>(services.GetRequiredService<NavigationStore>(),
-                    () => new LoginViewModel(services.GetRequiredService<FirebaseAuthProvider>(),
+                    () => new LoginViewModel(services.GetRequiredService<AuthenticationStore>(),
                     services.GetRequiredService<NavigationService<RegisterViewModel>>(),
                     services.GetRequiredService<NavigationService<HomeViewModel>>())));
 
                 ServiceCollection.AddSingleton<NavigationService<HomeViewModel>>(
                     (services) => new NavigationService<HomeViewModel>(services.GetRequiredService<NavigationStore>(),
-                    () => new HomeViewModel()));
+                    () => new HomeViewModel(services.GetRequiredService<AuthenticationStore>())));
 
                 ServiceCollection.AddSingleton<NavigationService<SplashScreenViewModel>>(
                    (services) => new NavigationService<SplashScreenViewModel>(services.GetRequiredService<NavigationStore>(),
@@ -72,7 +74,7 @@ namespace chatsharp_cs_project
         protected override void OnStartup(StartupEventArgs e)
         {
 
-            var navigationService = _host.Services.GetRequiredService<NavigationService<HomeViewModel>>(); // WHEN APP IS FINISHED -> THE ONSTARTUP SHOULD INVOKE SPLASHSCREENVIEWMODEL 
+            var navigationService = _host.Services.GetRequiredService<NavigationService<LoginViewModel>>(); // WHEN APP IS FINISHED -> THE ONSTARTUP SHOULD INVOKE SPLASHSCREENVIEWMODEL 
             navigationService.Navigate();
 
             MainWindow = _host.Services.GetRequiredService<MainWindow>();

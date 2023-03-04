@@ -85,5 +85,7 @@ namespace chatsharp_cs_project.View
             else
                 Application.Current.MainWindow.WindowState = WindowState.Normal;
         }
+
+  
     }
 }

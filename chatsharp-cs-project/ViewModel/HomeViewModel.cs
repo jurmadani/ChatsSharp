@@ -1,4 +1,5 @@
 ﻿using chatsharp_cs_project.Commands;
+using chatsharp_cs_project.Stores;
 using FontAwesome.Sharp;
 using MVVMEssentials.ViewModels;
 using System;
@@ -15,7 +16,8 @@ namespace chatsharp_cs_project.ViewModel
     {
 
 
-        public string Username => "Username";
+        private readonly AuthenticationStore _authenticationStore;
+        public string Username => _authenticationStore.CurrentUser?.Email ?? "Unknown";
         private ViewModelBase _currentChildView;
         private string _caption;
         private IconChar _icon;
@@ -43,8 +45,9 @@ namespace chatsharp_cs_project.ViewModel
         public ICommand ShowHomeViewCommand { get; }
         public ICommand ShowFriendsViewCommand { get; }
 
-        public HomeViewModel()
+        public HomeViewModel(AuthenticationStore authenticationStore)
         {
+            _authenticationStore = authenticationStore;
             ShowHomeViewCommand = new ViewModelCommand(ExecuteShowHomeViewCommand);
             ExecuteShowHomeViewCommand(null);
         }

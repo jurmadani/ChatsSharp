@@ -30,7 +30,7 @@
                 <!--Content section-->
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
+            
             <!--Navigation Menu-->
             <Border CornerRadius="10,0,0,10" Grid.Column="0">
                 <Border.Background>
@@ -39,7 +39,7 @@
                         <GradientStop Color="#36393f" Offset="1"/>
                     </LinearGradientBrush>
                 </Border.Background>
-
+                
                 <StackPanel>
                     <!--Logo-->
                     <StackPanel Orientation="Horizontal"
@@ -64,7 +64,7 @@
                             <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
+                    
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="White">
                         <StackPanel Orientation="Horizontal">
@@ -72,7 +72,7 @@
                             <TextBlock Text="Friends" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
+                    
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="White">
                         <StackPanel Orientation="Horizontal">
@@ -80,7 +80,7 @@
                             <TextBlock Text="Messages" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
+                    
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="White">
                         <StackPanel Orientation="Horizontal">
@@ -88,7 +88,7 @@
                             <TextBlock Text="Groups" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
+                    
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="White">
                         <StackPanel Orientation="Horizontal">
@@ -96,7 +96,7 @@
                             <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
-
+                    
                 </StackPanel>
             </Border>
             <!--Main section-->
@@ -116,6 +116,8 @@
                         <!--Content section / Child views-->
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
+                    
+
                     <!--Control bar-->
                     <StackPanel x:Name="panelControlBar"
                                 Grid.Row="0"
@@ -131,53 +133,57 @@
                             Click="buttonClose_Click"
                             HorizontalAlignment="Right"
                             Margin="0 10 0 0 ">
-                            <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
-                        </Button>
+                        <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
+                    </Button>
 
-                        <Button x:Name="buttonMaximize"
+                    <Button x:Name="buttonMaximize"
                             Style="{StaticResource controlButton}"
                             Tag="White"
                             Click="buttonMaximize_Click"
                             HorizontalAlignment="Right"
                             Margin="0 10 30 0 ">
-                            <fa:IconImage Icon="Square" Style="{StaticResource controlButtonIcon}"/>
-                        </Button>
+                        <fa:IconImage Icon="Square" Style="{StaticResource controlButtonIcon}"/>
+                    </Button>
 
-                        <Button x:Name="buttonMinimize"
+                    <Button x:Name="buttonMinimize"
                             Style="{StaticResource controlButton}"
                             Tag="White"
                             Click="buttonMinimize_Click"
                             HorizontalAlignment="Right"
                             Margin="-30 10 60 0 ">
-                            <fa:IconImage Icon="WindowMinimize" Width="12" Style="{StaticResource controlButtonIcon}"/>
-                        </Button>
+                        <fa:IconImage Icon="WindowMinimize" Width="12" Style="{StaticResource controlButtonIcon}"/>
+                    </Button>
                     </StackPanel>
+                    
                     <!--Header / Caption-->
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <!--User options-->
+                      <!--User options-->
                         <StackPanel Grid.Column="1"
                                     Orientation="Horizontal"
                                     FlowDirection="RightToLeft"
                                     VerticalAlignment="Center"
                                     Margin="0,0,10,0">
-                            <Button Style="{StaticResource iconButton}"
-                                    Tag="white">
-                                <fa:IconImage Icon="AngleDown" Style="{StaticResource iconButtonIcon}"
-                                              Foreground="AliceBlue"/>
-
-                            </Button>
-                            <TextBlock Text="{Binding Username}"
-                                       Foreground="White"
-                                       FontFamily="Montserrat"
-                                       FontSize="12"
-                                       VerticalAlignment="Center"
-                                       FontWeight="ExtraLight"
-                                       Margin="5 8 0 5"/>
-                            <Ellipse Height="35" Width="35"
+                         
+                            <Menu Background="Transparent" Height="23" Foreground="White">
+                                <MenuItem Header="{Binding Username, Mode=OneWay}" FontWeight="Bold" Margin="0 3 0 0">
+                                    <MenuItem Header="View Profile" Foreground="Black" Background="Transparent" FontWeight="Normal">
+                                        <MenuItem.Icon>
+                                            <fa:IconImage Icon="UserFriends"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem Header="Logout" Foreground="Black" Background="Transparent" FontWeight="Normal">
+                                        <MenuItem.Icon>
+                                            <fa:IconImage Icon="SignOut"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </MenuItem>
+                            </Menu>
+        
+                            <Ellipse Height="33" Width="33"
                                      Stroke="White"
                                      StrokeThickness="2"
                                      Margin="10,0,10,0">
@@ -188,20 +194,16 @@
 
                         </StackPanel>
                     </Grid>
-
+                    
                     <!--Content section / Child views-->
-                    <ContentControl
+                    <ContentControl Content="{Binding CurrentChildView}"
                                     Grid.Row="2"
-                                    Margin="25">
-                        <ComboBox HorizontalAlignment="Left" Margin="705,88,0,0" VerticalAlignment="Top" Width="16"
-                                  Foreground="Transparent"
-                                  Background="Transparent"/>
-                    </ContentControl>
+                                    Margin="25"/>
 
                 </Grid>
             </Border>
-
+          
         </Grid>
-
+     
     </Border>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using chatsharp_cs_project.ViewModel;
+﻿using chatsharp_cs_project.Stores;
+using chatsharp_cs_project.ViewModel;
 using Firebase.Auth;
 using MVVMEssentials.Commands;
 using MVVMEssentials.Services;
@@ -15,12 +16,12 @@ namespace chatsharp_cs_project.Commands
     {
 
         private readonly LoginViewModel _loginViewModel;
-        private readonly FirebaseAuthProvider _firebaseAuthProvider;
+        private readonly AuthenticationStore _authenticationStore;
         private readonly INavigationService _homeNavigationService;
-        public LoginCommand(LoginViewModel loginViewModel, FirebaseAuthProvider firebaseAuthProvider, INavigationService homeNavigationService)
+        public LoginCommand(LoginViewModel loginViewModel, AuthenticationStore authenticationStore, INavigationService homeNavigationService)
         {
             _loginViewModel = loginViewModel;
-            _firebaseAuthProvider = firebaseAuthProvider;
+            _authenticationStore = authenticationStore;
             _homeNavigationService = homeNavigationService;
         }
 
@@ -28,8 +29,8 @@ namespace chatsharp_cs_project.Commands
         {
             try
             {
-                await _firebaseAuthProvider.SignInWithEmailAndPasswordAsync(_loginViewModel.Email, _loginViewModel.Password);
-                MessageBox.Show("Sucessfully logged in!", "Success",MessageBoxButton.OK, MessageBoxImage.Information);
+                await _authenticationStore.Login(_loginViewModel.Email,_loginViewModel.Password);
+                MessageBox.Show("Sucessfully logged in!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 _homeNavigationService.Navigate();
             }

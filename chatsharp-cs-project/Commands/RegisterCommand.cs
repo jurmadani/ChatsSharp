@@ -36,7 +36,7 @@ namespace chatsharp_cs_project.Commands
             }
             try
             {
-                await _firebaseAuthProvider.CreateUserWithEmailAndPasswordAsync(_registerViewModel.Email, _registerViewModel.Password);
+                await _firebaseAuthProvider.CreateUserWithEmailAndPasswordAsync(_registerViewModel.Email, _registerViewModel.Password,_registerViewModel.Username);
                 MessageBox.Show("Succesfully registered", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 _loginNavigationService.Navigate();
