@@ -12,7 +12,10 @@
         <Image 
             Source="C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\Images\SplashScreenImage.jpg"/>
         <Image Source="C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\Images\SplashScreenBackground.jpg"
-               Opacity="0.09"/>
+               Opacity="0.15"/>
+        <Image 
+            Source="C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\Images\SplashScreenImage.jpg"
+            Opacity="0.6"/>
         <ProgressBar Margin="31,618,31,0"
              Background="Transparent"
              Minimum="0"

@@ -5,6 +5,13 @@ Theme colors:
 2)252525
 
 
+--------------------------------------------------------------------------------------------------------------------------------
+Tomorrow:
+Create the verification-email system for when a new user registers
+
+Create the UI for the ALL pages
+Try to understaned relationship between server-client for sending messeges and try implementing it to the current project
+
 
 
 
