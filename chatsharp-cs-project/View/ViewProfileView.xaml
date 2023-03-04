@@ -4,9 +4,139 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:chatsharp_cs_project.View"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" xmlns:viewmodel="clr-namespace:chatsharp_cs_project.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:ViewProfileViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="Transparent">
-        <TextBlock Text="Coming soon - VIEW PROFILE" FontSize="35" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+    <Border Background="#252525" CornerRadius="12">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <!-- Navigation Menu-->
+                <ColumnDefinition Width="200"/>
+                <!--Content section-->
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0">
+                <Ellipse Height="70" Width="70" 
+                 VerticalAlignment="Top"
+                 Stroke="White"
+                 StrokeThickness="2"
+                 Margin="0,175,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\Images\ProfileIcon.png"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Border>
+            <Border Background="White" Height="650" Width="0.8"
+                    Margin="199 0 0 0">
+            </Border>
+            <Border Background="White" Height="1" Width="130"
+                    Margin="0 40 0 0">
+            </Border>
+
+            <TextBlock Text="{Binding Username}" HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontSize="25"
+                       FontWeight="Light"
+                       VerticalAlignment="Center"
+                       Margin="0 0 0 0"/>
+            <TextBlock Text="Software Engineer" HorizontalAlignment="Center"
+                       Foreground="White"
+                       FontSize="20"
+                       FontWeight="Light"
+                       VerticalAlignment="Center"
+                       Margin="0 70 0 0"/>
+
+            <Border Grid.Column="1">
+                <TextBlock Text="Information" Foreground="White" FontSize="30"
+                           FontWeight="ExtraLight"
+                           Margin="40 20 0 0"/>
+            </Border>
+            <Border Grid.Column="1"  Background="White" Height="1" Width="620"
+                    VerticalAlignment="Top"
+                    Margin="0 70 0 0">
+            </Border>
+            <Border Grid.Column="1">
+                <TextBlock Text="Friends" Foreground="White" FontSize="23"
+                           FontWeight="ExtraLight"
+                           Margin="113 90 0 0"/>
+            </Border>
+            <Border Grid.Column="1">
+                <TextBlock Text="32" Foreground="White" FontSize="23"
+                           FontWeight="ExtraLight"
+                           Margin="80 90 0 0"/>
+            </Border>
+
+
+            <Border Grid.Column="1">
+                <fa:IconImage Icon="Envelope" Foreground="White" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="45 147 0 0"/>
+            </Border>
+            <Border Grid.Column="1">
+                <TextBlock Text="admin@yahoo.com" Foreground="White" FontSize="23"
+                           FontWeight="ExtraLight"
+                           Margin="80 140 0 0"/>
+            </Border>
+
+            <Border Grid.Column="1">
+                <fa:IconImage Icon="Phone" Foreground="White" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="45 197 0 0"/>
+            </Border>
+            <Border Grid.Column="1">
+                <TextBlock Text="0787589667" Foreground="White" FontSize="23"
+                           FontWeight="ExtraLight"
+                           Margin="80 193 0 0"/>
+            </Border>
+    
+            <fa:IconImage Icon="UserFriends" Grid.Column="1" Height="25" Width="25" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="45 96 0 0"/>
+
+
+            <Border Grid.Column="1">
+                <TextBlock Text="Social" Foreground="White" FontSize="30"
+                           FontWeight="ExtraLight"
+                           Margin="40 270 0 0"/>
+            </Border>
+            <Border Grid.Column="1"  Background="White" Height="1" Width="620"
+                    VerticalAlignment="Top"
+                    Margin="0 320 0 0">
+            </Border>
+            <Border Grid.Column="1">
+                <fa:IconImage Icon="Facebook" Foreground="White" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="45 337 0 0"/>
+            </Border>
+            <Border Grid.Column="1">
+                <fa:IconImage Icon="Instagram" Foreground="White" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="85 337 0 0"/>
+            </Border>
+            <Border Grid.Column="1">
+                <fa:IconImage Icon="Github" Foreground="White" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="125 337 0 0"/>
+            </Border>
+            <Border Grid.Column="1">
+                <fa:IconImage Icon="Linkedin" Foreground="White" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="165 337 0 0"/>
+            </Border>
+
+
+        </Grid>
     </Border>
+    <!--<StackPanel>
+                <fa:IconImage Icon="Envelope" Height="15" Width="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"
+                          Margin="25 275 0 0"/>
+                <TextBlock Text="Username_Email" FontSize="13"
+                           Foreground="White"
+                           FontWeight="ExtraLight"
+                           Margin="50 -17 0 0"
+                           />
+            </StackPanel>
+            <StackPanel>
+                <fa:IconImage Icon="Phone" Height="15" Width="15" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center"
+                          Margin="25 320 0 0"/>
+                <TextBlock Text="Phone" FontSize="13"
+                           Foreground="White"
+                           FontWeight="ExtraLight"
+                           Margin="50 -17 0 0"
+                           />
+
+            </StackPanel>
+            <Border Grid.Column="1" Background="White">
+                
+            </Border>-->
 </UserControl>
+
+
+

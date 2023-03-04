@@ -9,6 +9,6 @@ namespace chatsharp_cs_project.ViewModel
 {
     class ViewProfileViewModel : ViewModelBase
     {
-
+        public static string Username => "Username";
     }
 }
