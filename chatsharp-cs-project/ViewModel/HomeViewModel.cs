@@ -60,7 +60,7 @@ namespace chatsharp_cs_project.ViewModel
 
         private void ExecuteShowViewProfileCommand(object obj)
         {
-            CurrentChildView = new ViewProfileViewModel();
+            CurrentChildView = new ViewProfileViewModel(_authenticationStore);
         }
 
         private void ExecuteShowFriendsViewCommand(object obj)

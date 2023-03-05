@@ -8,7 +8,7 @@ using Firebase.Auth;
 
 namespace chatsharp_cs_project.Stores
 {
-    class AuthenticationStore
+    public class AuthenticationStore
     {
         private readonly FirebaseAuthProvider _firebaseAuthProvider;
 
@@ -24,5 +24,15 @@ namespace chatsharp_cs_project.Stores
         {
             _currentFirebaseAuthLink = await _firebaseAuthProvider.SignInWithEmailAndPasswordAsync(email,password);
         }
+
+        public async Task SendEmailVerificationEmail()
+        {
+            if(_currentFirebaseAuthLink == null) {
+                throw new Exception("User is not authenticated");
+            
+            }
+            await _firebaseAuthProvider.SendEmailVerificationAsync(_currentFirebaseAuthLink.FirebaseToken);
+        }
+
     }
 }
