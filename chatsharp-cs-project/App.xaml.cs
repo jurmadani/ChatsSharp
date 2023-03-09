@@ -15,6 +15,9 @@ using MVVMEssentials.ViewModels;
 using MVVMEssentials.Services;
 using chatsharp_cs_project.View;
 using chatsharp_cs_project.Stores;
+using FireSharp.Config;
+using FireSharp.Interfaces;
+using FireSharp.Response;
 
 namespace chatsharp_cs_project
 {
@@ -26,13 +29,17 @@ namespace chatsharp_cs_project
 
         private readonly IHost _host;
 
+
+
         public App()
         {
+
+
             _host = Host.CreateDefaultBuilder().ConfigureServices((context, ServiceCollection) =>
             {
                 string FireBaseApiKey = context.Configuration.GetValue<string>("FIREBASE_API_KEY");
 
-                ServiceCollection.AddSingleton(new FirebaseAuthProvider(new FirebaseConfig(FireBaseApiKey)));
+                ServiceCollection.AddSingleton(new FirebaseAuthProvider(new Firebase.Auth.FirebaseConfig(FireBaseApiKey)));
 
                 ServiceCollection.AddSingleton<NavigationStore>();
                 ServiceCollection.AddSingleton<ModalNavigationStore>();
@@ -41,7 +48,8 @@ namespace chatsharp_cs_project
                 ServiceCollection.AddSingleton<NavigationService<RegisterViewModel>>(
                     (services) => new NavigationService<RegisterViewModel>(services.GetRequiredService<NavigationStore>(),
                     () => new RegisterViewModel(services.GetRequiredService<FirebaseAuthProvider>(),
-                    services.GetRequiredService<NavigationService<LoginViewModel>>())));
+                    services.GetRequiredService<NavigationService<LoginViewModel>>(),
+                    services.GetRequiredService<AuthenticationStore>())));
 
                 ServiceCollection.AddSingleton<NavigationService<LoginViewModel>>(
                     (services) => new NavigationService<LoginViewModel>(services.GetRequiredService<NavigationStore>(),
@@ -79,6 +87,8 @@ namespace chatsharp_cs_project
 
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.Show();
+
+            
 
             base.OnStartup(e);
         }

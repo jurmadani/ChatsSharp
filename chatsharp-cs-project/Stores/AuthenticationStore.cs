@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using chatsharp_cs_project.Model;
 using chatsharp_cs_project.ViewModel;
 using Firebase.Auth;
+
+
 
 namespace chatsharp_cs_project.Stores
 {
@@ -19,10 +23,10 @@ namespace chatsharp_cs_project.Stores
 
         private FirebaseAuthLink _currentFirebaseAuthLink;
         public User CurrentUser => _currentFirebaseAuthLink?.User;
-
         public async Task Login(string email,string password)
         {
             _currentFirebaseAuthLink = await _firebaseAuthProvider.SignInWithEmailAndPasswordAsync(email,password);
+              
         }
 
         public async Task SendEmailVerificationEmail()
@@ -33,6 +37,17 @@ namespace chatsharp_cs_project.Stores
             }
             await _firebaseAuthProvider.SendEmailVerificationAsync(_currentFirebaseAuthLink.FirebaseToken);
         }
+
+        public async Task UpdateUserIDInFirebaseDatabase(UserModel userModel, string email, string password, string username)
+        {
+            FirebaseDatabaseConnectionStore _firebaseDatabaseConnection = new FirebaseDatabaseConnectionStore();
+
+            _currentFirebaseAuthLink = await _firebaseAuthProvider.SignInWithEmailAndPasswordAsync(email, password);
+            userModel.Id = CurrentUser.LocalId;
+            await _firebaseDatabaseConnection._client.UpdateAsync("Users/" + username, userModel);
+
+        }
+
 
     }
 }

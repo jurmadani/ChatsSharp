@@ -17,7 +17,7 @@ namespace chatsharp_cs_project.ViewModel
 
 
         private readonly AuthenticationStore _authenticationStore;
-        public string Username => "admin@yahoo.com";//_authenticationStore.CurrentUser?.Email ?? "Unknown";
+        public string Username => _authenticationStore.CurrentUser?.Email ?? "Unknown";
         private ViewModelBase _currentChildView;
 
         public ViewModelBase CurrentChildView { get => _currentChildView;

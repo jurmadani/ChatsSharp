@@ -72,7 +72,7 @@
                 <fa:IconImage Icon="Envelope" Foreground="White" Height="25" Width="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="45 147 0 0"/>
             </Border>
             <Border Grid.Column="1">
-                <TextBlock Text="admin@yahoo.com" Foreground="White" FontSize="23"
+                <TextBlock Text="{Binding Email}" Foreground="White" FontSize="23"
                            FontWeight="ExtraLight"
                            Margin="80 140 0 0"/>
             </Border>

@@ -83,3 +83,9 @@ C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\D
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\MessagesView.baml
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\GroupsView.baml
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\SettingsView.baml
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\FireSharp.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\Microsoft.Threading.Tasks.Extensions.Desktop.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\Microsoft.Threading.Tasks.Extensions.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\Microsoft.Threading.Tasks.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\System.Net.Http.Extensions.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\System.Net.Http.Primitives.dll

@@ -30,7 +30,7 @@ namespace chatsharp_cs_project.Commands
             try
             {
                 await _authenticationStore.Login(_loginViewModel.Email,_loginViewModel.Password);
-                MessageBox.Show("Sucessfully logged in!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Sucessfully logged in!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);;
 
                 _homeNavigationService.Navigate();
             }
