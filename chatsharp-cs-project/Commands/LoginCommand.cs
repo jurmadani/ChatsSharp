@@ -1,6 +1,8 @@
-﻿using chatsharp_cs_project.Stores;
+﻿using chatsharp_cs_project.Model;
+using chatsharp_cs_project.Stores;
 using chatsharp_cs_project.ViewModel;
 using Firebase.Auth;
+using FireSharp.Response;
 using MVVMEssentials.Commands;
 using MVVMEssentials.Services;
 using System;
@@ -30,6 +32,7 @@ namespace chatsharp_cs_project.Commands
             try
             {
                 await _authenticationStore.Login(_loginViewModel.Email,_loginViewModel.Password);
+  
                 MessageBox.Show("Sucessfully logged in!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);;
 
                 _homeNavigationService.Navigate();
@@ -39,5 +42,8 @@ namespace chatsharp_cs_project.Commands
                 MessageBox.Show("Login failed. Please check your information", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+       
     }
 }

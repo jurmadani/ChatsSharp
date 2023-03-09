@@ -65,6 +65,9 @@ namespace chatsharp_cs_project
                    (services) => new NavigationService<SplashScreenViewModel>(services.GetRequiredService<NavigationStore>(),
                    () => new SplashScreenViewModel(services.GetRequiredService<NavigationService<LoginViewModel>>())));
 
+                ServiceCollection.AddSingleton<ViewProfileViewModel>(
+                    (services) => new ViewProfileViewModel(services.GetRequiredService<AuthenticationStore>()));
+
 
 
                 ServiceCollection.AddSingleton<MainViewModel>();

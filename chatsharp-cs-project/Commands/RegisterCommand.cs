@@ -47,7 +47,9 @@ namespace chatsharp_cs_project.Commands
                 {
                     await _firebaseAuthProvider.CreateUserWithEmailAndPasswordAsync(_registerViewModel.Email, _registerViewModel.Password, _registerViewModel.Username);
                     FirebaseDatabaseConnectionStore firebaseDatabaseConnection = new FirebaseDatabaseConnectionStore();
+           
                     UserModel User = new UserModel("UIDNotSet" + _registerViewModel.Username + "___", _registerViewModel.Username, "Not set yet", 0, "Not set yet", _registerViewModel.Email);
+
                     if (firebaseDatabaseConnection.CheckForConnection() == 1)
                     {
                         try
@@ -67,7 +69,7 @@ namespace chatsharp_cs_project.Commands
                 }
                 catch (Exception)
                 {
-                    MessageBox.Show("Registration failed. Please check your information or try again later.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Email already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else

@@ -16,14 +16,15 @@ namespace chatsharp_cs_project.Model
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
 
-        public UserModel(string id,string username,string jobTitle,int friendsNumber,string phoneNumber,string email)
+
+        public UserModel(string id,string username, string jobTitle, int friendsNumber, string phoneNumber, string email)
         {
             Id = id;
             Username = username;
             JobTitle = jobTitle;
             FriendsNumber = friendsNumber;
             PhoneNumber = phoneNumber;
-            Email = email;
+            Email = email;   
         }
 
 

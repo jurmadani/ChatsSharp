@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using chatsharp_cs_project.Model;
 using chatsharp_cs_project.ViewModel;
 using Firebase.Auth;
-
-
+using FireSharp.Response;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace chatsharp_cs_project.Stores
 {
@@ -45,9 +45,17 @@ namespace chatsharp_cs_project.Stores
             _currentFirebaseAuthLink = await _firebaseAuthProvider.SignInWithEmailAndPasswordAsync(email, password);
             userModel.Id = CurrentUser.LocalId;
             await _firebaseDatabaseConnection._client.UpdateAsync("Users/" + username, userModel);
+  
 
         }
 
+        public UserModel GenerateUserModel(string username)
+        {
+            FirebaseDatabaseConnectionStore _firebaseDatabaseConnection = new FirebaseDatabaseConnectionStore();
+            FirebaseResponse Response = _firebaseDatabaseConnection._client.Get("Users/" + username);
+            UserModel NewUser = Response.ResultAs<UserModel>();
+            return NewUser;
+        }
 
     }
 }
