@@ -21,12 +21,17 @@ namespace chatsharp_cs_project.Stores
             _firebaseAuthProvider= firebaseAuthProvider;
         }
 
-        private FirebaseAuthLink _currentFirebaseAuthLink;
+        private FirebaseAuthLink? _currentFirebaseAuthLink;
         public User CurrentUser => _currentFirebaseAuthLink?.User;
         public async Task Login(string email,string password)
         {
             _currentFirebaseAuthLink = await _firebaseAuthProvider.SignInWithEmailAndPasswordAsync(email,password);
               
+        }
+
+        public void Logout()
+        {
+            _currentFirebaseAuthLink = null;
         }
 
         public async Task SendEmailVerificationEmail()

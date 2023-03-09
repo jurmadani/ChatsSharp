@@ -59,7 +59,8 @@ namespace chatsharp_cs_project
 
                 ServiceCollection.AddSingleton<NavigationService<HomeViewModel>>(
                     (services) => new NavigationService<HomeViewModel>(services.GetRequiredService<NavigationStore>(),
-                    () => new HomeViewModel(services.GetRequiredService<AuthenticationStore>())));
+                    () => new HomeViewModel(services.GetRequiredService<AuthenticationStore>(),
+                    services.GetRequiredService<NavigationService<LoginViewModel>>())));
 
                 ServiceCollection.AddSingleton<NavigationService<SplashScreenViewModel>>(
                    (services) => new NavigationService<SplashScreenViewModel>(services.GetRequiredService<NavigationStore>(),
@@ -91,7 +92,7 @@ namespace chatsharp_cs_project
             MainWindow = _host.Services.GetRequiredService<MainWindow>();
             MainWindow.Show();
 
-            
+
 
             base.OnStartup(e);
         }
