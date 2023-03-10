@@ -45,6 +45,7 @@ namespace chatsharp_cs_project
                 ServiceCollection.AddSingleton<ModalNavigationStore>();
                 ServiceCollection.AddSingleton<AuthenticationStore>();
 
+
                 ServiceCollection.AddSingleton<NavigationService<RegisterViewModel>>(
                     (services) => new NavigationService<RegisterViewModel>(services.GetRequiredService<NavigationStore>(),
                     () => new RegisterViewModel(services.GetRequiredService<FirebaseAuthProvider>(),
@@ -55,7 +56,8 @@ namespace chatsharp_cs_project
                     (services) => new NavigationService<LoginViewModel>(services.GetRequiredService<NavigationStore>(),
                     () => new LoginViewModel(services.GetRequiredService<AuthenticationStore>(),
                     services.GetRequiredService<NavigationService<RegisterViewModel>>(),
-                    services.GetRequiredService<NavigationService<HomeViewModel>>())));
+                    services.GetRequiredService<NavigationService<HomeViewModel>>(),
+                    services.GetRequiredService<NavigationService<PasswordResetViewModel>>())));
 
                 ServiceCollection.AddSingleton<NavigationService<HomeViewModel>>(
                     (services) => new NavigationService<HomeViewModel>(services.GetRequiredService<NavigationStore>(),
@@ -68,6 +70,11 @@ namespace chatsharp_cs_project
 
                 ServiceCollection.AddSingleton<ViewProfileViewModel>(
                     (services) => new ViewProfileViewModel(services.GetRequiredService<AuthenticationStore>()));
+
+                ServiceCollection.AddSingleton<NavigationService<PasswordResetViewModel>>(
+                  (services) => new NavigationService<PasswordResetViewModel>(services.GetRequiredService<NavigationStore>(),
+                  () => new PasswordResetViewModel(services.GetRequiredService<FirebaseAuthProvider>(),
+                  services.GetRequiredService<NavigationService<LoginViewModel>>())));
 
 
 

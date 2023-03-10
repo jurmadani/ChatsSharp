@@ -7,9 +7,12 @@ Theme colors:
 
 --------------------------------------------------------------------------------------------------------------------------------
 Tomorrow:
-Create the verification-email system for when a new user registers
+
+
+1)finish the forgot password view and ViewModel
+2)start messages UI 
+
 Try to understaned relationship between server-client for sending messeges and try implementing it to the current project
-Finish the binding between Viewprofile and ViewprofileViewModel
 usefull links:
 https://bbbootstrap.com/snippets/social-profile-container-63944396
 

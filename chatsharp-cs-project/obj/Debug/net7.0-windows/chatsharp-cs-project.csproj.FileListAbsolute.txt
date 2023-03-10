@@ -89,3 +89,5 @@ C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\D
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\Microsoft.Threading.Tasks.dll
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\System.Net.Http.Extensions.dll
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\bin\Debug\net7.0-windows\System.Net.Http.Primitives.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\PasswordResetView.g.cs
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\PasswordResetView.baml

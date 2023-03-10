@@ -28,6 +28,9 @@
                 <DataTemplate DataType="{x:Type vms:SplashScreenViewModel}">
                     <View:SplashScreenView/>
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:PasswordResetViewModel}">
+                    <View:PasswordResetView/>
+                </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
     </Grid>

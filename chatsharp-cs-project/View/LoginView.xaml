@@ -3,7 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:chatsharp_cs_project.View" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:components="clr-namespace:PasswordBoxMVVM.Components;assembly=PasswordBoxMVVM" xmlns:customcontrols="clr-namespace:chatsharp_cs_project.CustomControls"
+             xmlns:local="clr-namespace:chatsharp_cs_project.View" 
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" 
+             xmlns:components="clr-namespace:PasswordBoxMVVM.Components;assembly=PasswordBoxMVVM" 
+             xmlns:customcontrols="clr-namespace:chatsharp_cs_project.CustomControls" 
+             xmlns:viewmodel="clr-namespace:chatsharp_cs_project.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:LoginViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="650" d:DesignWidth="1200"
              Background="Transparent"> 
@@ -75,7 +80,7 @@
                             Margin="0 3 0 0"
                             
                     />
-                    <StackPanel>
+                    <StackPanel Margin="0 45 0 0">
                         <Border BorderThickness="4" BorderBrush="#252525" CornerRadius="10" Width="101" Margin="0 60 250 0">
                         <Button Height="28" Content="LOGIN"
                                     Foreground="White"
@@ -103,11 +108,23 @@
 
 
                     </Border>
+                        <Button 
+                            Content="Forgot password?" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                   FontSize="15"
+                                   Foreground="White"
+                                   FontWeight="Light"
+                                   Margin="-240 -230 0 0"
+                                   Opacity="0.8"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Command="{Binding NavigateForgotPasswordViewCommand}"
+                                
+                                   />
                     </StackPanel>
 
 
                 </StackPanel>
-
+               
             </Border>
 
 

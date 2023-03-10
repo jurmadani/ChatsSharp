@@ -42,12 +42,16 @@ namespace chatsharp_cs_project.ViewModel
 
         public ICommand NavigateRegisterCommand { get; }
 
+        public ICommand NavigateForgotPasswordViewCommand { get; }
+
         public LoginViewModel(AuthenticationStore authenticationStore, 
-                              MVVMEssentials.Services.INavigationService registerNavigationService,
-                              INavigationService homeNavigationService)
+                              INavigationService registerNavigationService,
+                              INavigationService homeNavigationService,
+                              INavigationService passwordNavigationService)
         {
             SubmitCommand = new LoginCommand(this, authenticationStore, homeNavigationService);
             NavigateRegisterCommand = new NavigateCommand(registerNavigationService);
+            NavigateForgotPasswordViewCommand = new NavigateCommand(passwordNavigationService); 
         }
 
 
