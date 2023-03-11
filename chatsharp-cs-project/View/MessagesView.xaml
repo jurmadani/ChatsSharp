@@ -3,10 +3,99 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:chatsharp_cs_project.View"
+             xmlns:local="clr-namespace:chatsharp_cs_project.View" 
+             xmlns:viewmodel="clr-namespace:chatsharp_cs_project.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:MessagesViewModel}"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:cmd="http://www.galasoft.ch/mvvmlight"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="Transparent">
-        <TextBlock Text="Coming soon - Messages VIEW" FontSize="35" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-    </Border>
+   
+        
+        <!--
+        <ListView ItemsSource="{Binding _messages}" Background="Transparent" Foreground="White" BorderThickness="0" FontSize="15" Width="80" HorizontalAlignment="Left">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Sender}" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Receiver}" />
+                        <TextBlock Text="{Binding MessageText}" />
+                        <TextBlock Text="{Binding Timestamp}" />
+                        <Image Source="C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\Images\ProfileIcon.png" Height="20" Width="20"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        -->
+        <!--
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer x:Name="Viewer" VerticalScrollBarVisibility="Auto">
+            <TextBlock x:Name="AllMessages" TextWrapping="Wrap"
+                     Text="{Binding MessageToAppear, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"
+                     FontSize="20"
+                       FontWeight="Bold"
+                       Foreground="White"/>
+        </ScrollViewer>
+        <Border Grid.Row="2" Background="Transparent" BorderBrush="White"
+                BorderThickness="1">
+        <StackPanel Grid.Row="2" Background="Transparent">
+            <TextBox x:Name="MessageTextBox" 
+                     Text="{Binding MessageFromTextBox, UpdateSourceTrigger=PropertyChanged}"
+                     Width="709" AcceptsReturn="True"
+                     Height="60"
+                     HorizontalAlignment="Left"
+                     BorderBrush="Black"
+                     BorderThickness="2"
+                     Margin="2 5 0 0"/>
+            <Button x:Name="SendMessageButton" Content="Send"
+                    Width="80"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="0 -30 0 0"
+                    Command="{Binding ButtonClick}"/>
+        </StackPanel>
+        </Border>
+    </Grid> -->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="125"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Background="#252525" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="Chats"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   FontWeight="Medium"
+                   Foreground="Gray"
+                   Margin="0 0 0 0"/>
+            <ListView ItemsSource="{Binding Users}"
+                      Background="Transparent"
+                      BorderThickness="0"
+                      Grid.Row="1"
+                      ItemContainerStyle="{StaticResource FriendCard}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <cmd:EventToCommand Command="{Binding TestCommand}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ListView>
+
+        </Grid>
+
+
+
+        <Border BorderBrush="White" BorderThickness="1" Grid.Column="1"  Background="#252525" Height="600" Width="1" HorizontalAlignment="Left"/>
+ 
+
+    </Grid>
+    
+
 </UserControl>

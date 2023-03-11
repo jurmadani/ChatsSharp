@@ -56,6 +56,13 @@ namespace chatsharp_cs_project.Commands
                         {
                             await firebaseDatabaseConnection.InsertUserIntoDatabase(User);
                             await _authenticationStore.UpdateUserIDInFirebaseDatabase(User, _registerViewModel.Email, _registerViewModel.Password, _registerViewModel.Username);
+
+                          /*  MessageModel messageModel1 = new MessageModel("dani", "gabi", "ceau", "11:57AM");
+                            await firebaseDatabaseConnection.TestMessages(messageModel1, 1);*/
+
+
+
+
                             MessageBox.Show("Succesfully registered", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         catch (Exception)

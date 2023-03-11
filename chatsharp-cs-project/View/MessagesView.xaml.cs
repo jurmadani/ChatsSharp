@@ -23,6 +23,8 @@ namespace chatsharp_cs_project.View
         public MessagesView()
         {
             InitializeComponent();
+
         }
+
     }
 }

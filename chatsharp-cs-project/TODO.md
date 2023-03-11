@@ -9,8 +9,9 @@ Theme colors:
 Tomorrow:
 
 
-1)finish the forgot password view and ViewModel
-2)start messages UI 
+1)start messages UI 
+2)finish the messages view_model and listener to update UI
+
 
 Try to understaned relationship between server-client for sending messeges and try implementing it to the current project
 usefull links:

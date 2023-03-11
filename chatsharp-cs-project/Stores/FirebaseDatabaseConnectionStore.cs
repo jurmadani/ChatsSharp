@@ -1,6 +1,7 @@
 ﻿using chatsharp_cs_project.Model;
 using chatsharp_cs_project.ViewModel;
 using Firebase.Auth;
+using Firebase.Database;
 using FireSharp.Config;
 using FireSharp.Interfaces;
 using FireSharp.Response;
@@ -60,7 +61,25 @@ namespace chatsharp_cs_project.Stores
             
         }
 
-       
+
+     /*   public async Task TestMessages(MessageModel messageModel,int id)
+        {
+            try
+            {
+                if (CheckForConnection() == 1)
+                {
+                    SetResponse response = await _client.SetAsync("Messages/" + id, messageModel);
+                }
+                else
+                {
+                    MessageBox.Show("Connection is not established");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error when inserting into database");
+            }
+        }*/
 
 
         public async Task<List<string>> GetAllDataAsync()

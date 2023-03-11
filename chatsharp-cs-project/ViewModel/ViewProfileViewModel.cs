@@ -22,6 +22,7 @@ namespace chatsharp_cs_project.ViewModel
  
         public bool IsEmailVerified => _authenticationStore.CurrentUser?.IsEmailVerified ?? false;
 
+       
         public string PhoneNumber{get; set;}
         public int FriendsNumber{get; set;}
         public string JobTitle{get; set;}

@@ -26,7 +26,6 @@ namespace chatsharp_cs_project.Commands
             _authenticationStore = authenticationStore;
             _homeNavigationService = homeNavigationService;
         }
-
         protected override async Task ExecuteAsync(object parameter)
         {
             try

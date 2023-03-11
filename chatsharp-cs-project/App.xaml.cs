@@ -71,6 +71,9 @@ namespace chatsharp_cs_project
                 ServiceCollection.AddSingleton<ViewProfileViewModel>(
                     (services) => new ViewProfileViewModel(services.GetRequiredService<AuthenticationStore>()));
 
+                ServiceCollection.AddSingleton<FriendsViewModel>(
+                 (services) => new FriendsViewModel(services.GetRequiredService<AuthenticationStore>()));
+
                 ServiceCollection.AddSingleton<NavigationService<PasswordResetViewModel>>(
                   (services) => new NavigationService<PasswordResetViewModel>(services.GetRequiredService<NavigationStore>(),
                   () => new PasswordResetViewModel(services.GetRequiredService<FirebaseAuthProvider>(),
