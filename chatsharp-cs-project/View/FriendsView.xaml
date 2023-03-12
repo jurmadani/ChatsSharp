@@ -25,7 +25,9 @@
                 Command="{Binding SearchCommand}"/>
         <ListView Height="300" Width="800" Margin="0 130 0 0" Background="Transparent"
                   BorderThickness="0"
-                   ItemsSource="{Binding ListOfPotentialFriends}">
+                   ItemsSource="{Binding ListOfPotentialFriends}"
+                   SelectedItem="{Binding SelectedPossibleFriend, Mode=TwoWay}"
+                  x:Name="ListOfPotentialFriendsListView">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="BorderBrush" Value="White"/>

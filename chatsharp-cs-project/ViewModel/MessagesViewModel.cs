@@ -41,6 +41,7 @@ namespace chatsharp_cs_project.ViewModel
         public ObservableCollection<UserModel> Users { get; set; }
         public RelayCommand TestCommand { get; private set; }
 
+
         public MessagesViewModel()
         {
             _firebaseDatabaseConnection = new FirebaseDatabaseConnectionStore();
@@ -48,12 +49,15 @@ namespace chatsharp_cs_project.ViewModel
             _messages = new ObservableCollection<MessageModel>();
             Users = new ObservableCollection<UserModel>();
             TestCommand = new RelayCommand(ExecuteTestCommand);
+
+
             for (int i = 0;i < 2; i++)
             {
                 UserModel user = new UserModel(i.ToString(), $"Test nr.{i}","test",i,"test-pn","test@yahoo.com");
                 Users.Add(user);
         
             }
+
             //LiveCall();
             //SetListener();
             //generate();

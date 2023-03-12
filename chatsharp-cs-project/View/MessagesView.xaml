@@ -80,7 +80,8 @@
                       Background="Transparent"
                       BorderThickness="0"
                       Grid.Row="1"
-                      ItemContainerStyle="{StaticResource FriendCard}">
+                      ItemContainerStyle="{StaticResource FriendCard}"
+                      x:Name="ListViewMessagesView">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
                         <cmd:EventToCommand Command="{Binding TestCommand}" />

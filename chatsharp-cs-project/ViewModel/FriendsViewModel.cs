@@ -1,6 +1,7 @@
 ﻿using chatsharp_cs_project.Commands;
 using chatsharp_cs_project.Model;
 using chatsharp_cs_project.Stores;
+using chatsharp_cs_project.View;
 using FireSharp.Response;
 using GalaSoft.MvvmLight.Command;
 using MVVMEssentials.ViewModels;
@@ -40,6 +41,17 @@ namespace chatsharp_cs_project.ViewModel
             }
         }
 
+        public string _selectedPossibleFriend;
+        public string SelectedPossibleFriend
+        {
+            get { return _selectedPossibleFriend; }
+            set
+            {
+                _selectedPossibleFriend = value;
+                OnPropertyChanged(nameof(SelectedPossibleFriend));
+            }
+        }
+
 
         public FriendsViewModel(AuthenticationStore authenticationStore)
         {
@@ -70,7 +82,6 @@ namespace chatsharp_cs_project.ViewModel
             }
 
         }
-
         private int GetFriendsNumberOfUser(string username)
         {
             int UserFriendsNumber;
@@ -95,21 +106,62 @@ namespace chatsharp_cs_project.ViewModel
 
         public void AddFriendFunction()
         {
-            ExecuteAddFriendCountCommand();
-            ExecuteAddFriendUsernameCommand();
-            MessageBox.Show("Succesfully added " + Username + " as your friend!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            if (CanNotAddYourSelfProtection() == false)
+                MessageBox.Show("You can't add yourself as a friend.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            else if (FriendIsAlreadyInCurrentUserFriendList() == false)
+            {
+                ExecuteAddFriendCountCommand();
+                ExecuteAddFriendUsernameCommand();
+                MessageBox.Show("Succesfully added " + SelectedPossibleFriend + " as your friend!", "Succes", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+                MessageBox.Show(SelectedPossibleFriend + " is already in your friends list", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+           
+
+        }
+
+        private bool FriendIsAlreadyInCurrentUserFriendList()
+        {
+
+            FirebaseResponse response = _firebaseDatabaseConnection._client.Get("Users/" + CurrentUserUsername + "/Friends");
+            string json = response.Body.ToString();
+            if (!string.IsNullOrEmpty(json))
+            {
+                var jsonData = JsonConvert.DeserializeObject<JArray>(json);
+                if (jsonData == null)
+                    return false;
+                foreach (var data in jsonData)
+                {
+                    if (data.Path != "[0]")
+                        if (data.Value<String>("Username") == SelectedPossibleFriend)
+                        {
+                            return true;
+                        }
+
+                }
+
+            }
+            return false;
+
+        }
+
+        private bool CanNotAddYourSelfProtection()
+        {
+            if (SelectedPossibleFriend == CurrentUserUsername)
+                return false;
+            return true;
         }
         private async void ExecuteAddFriendCountCommand()
         {
             int CurrentUserFriendsNumber = GetFriendsNumberOfUser(CurrentUserUsername);
-            int UserToBeAddedFriendsNumber = GetFriendsNumberOfUser(Username);
+            int UserToBeAddedFriendsNumber = GetFriendsNumberOfUser(SelectedPossibleFriend);
 
             FriendsNumberJSON currentUser = new FriendsNumberJSON(CurrentUserFriendsNumber + 1);
             FriendsNumberJSON userToBeAdded = new FriendsNumberJSON(UserToBeAddedFriendsNumber + 1);
             try
             {
                 await _firebaseDatabaseConnection._client.UpdateAsync("Users/" + CurrentUserUsername, currentUser);
-                await _firebaseDatabaseConnection._client.UpdateAsync("Users/" + Username, userToBeAdded);
+                await _firebaseDatabaseConnection._client.UpdateAsync("Users/" + SelectedPossibleFriend, userToBeAdded);
             }
             catch (Exception)
             {
@@ -121,17 +173,17 @@ namespace chatsharp_cs_project.ViewModel
 
         private async void ExecuteAddFriendUsernameCommand()
         {
-       
+
             int CurrentUserFriendsNumber = GetLastIndexOfFriends(CurrentUserUsername);
-            int UserToBeAddedFriendsNumber = GetLastIndexOfFriends(Username);
+            int UserToBeAddedFriendsNumber = GetLastIndexOfFriends(SelectedPossibleFriend);
 
             FriendsJSON currentUser = new FriendsJSON(CurrentUserUsername);
-            FriendsJSON userToBeAdded = new FriendsJSON(Username);
+            FriendsJSON userToBeAdded = new FriendsJSON(SelectedPossibleFriend);
 
             try
             {
                 await _firebaseDatabaseConnection._client.UpdateAsync("Users/" + CurrentUserUsername + "/Friends/" + CurrentUserFriendsNumber.ToString(), userToBeAdded);
-                await _firebaseDatabaseConnection._client.UpdateAsync("Users/" + Username + "/Friends/" + UserToBeAddedFriendsNumber.ToString(), currentUser);
+                await _firebaseDatabaseConnection._client.UpdateAsync("Users/" + SelectedPossibleFriend + "/Friends/" + UserToBeAddedFriendsNumber.ToString(), currentUser);
             }
             catch (Exception)
             {
@@ -157,11 +209,12 @@ namespace chatsharp_cs_project.ViewModel
                 }
                 else { return 1; }
             }
-            catch(Exception) {
+            catch (Exception)
+            {
 
                 return LastIndexOfFriends;
             }
-                
+
         }
     }
 
