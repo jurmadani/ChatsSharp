@@ -80,7 +80,7 @@ namespace chatsharp_cs_project.ViewModel
                 }
 
             }
-
+      
         }
         private int GetFriendsNumberOfUser(string username)
         {

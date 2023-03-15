@@ -73,7 +73,7 @@ namespace chatsharp_cs_project.ViewModel
 
         private void ExecuteShowMessagesViewCommand(object obj)
         {
-            CurrentChildView = new MessagesViewModel();
+            CurrentChildView = new MessagesViewModel(_authenticationStore);
         }
 
         private void ExecuteShowGroupsViewCommand(object obj)

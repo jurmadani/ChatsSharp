@@ -6,11 +6,15 @@ Theme colors:
 
 
 --------------------------------------------------------------------------------------------------------------------------------
-Tomorrow:
+
+1)Finish messages UI + ViewModel
+
+Usefull links : 
+https://www.youtube.com/watch?v=hhyGwT0TFrw -> message bubble UI guy
+https://www.youtube.com/watch?v=ZOpDnN2I6qw&list=PLuv4McUMmyAbsNdfZ4rH_OyEM3P2MJS-F&index=11 -> retrieve image from firebase
+https://www.youtube.com/watch?v=LgzQx7CGmrM&t=259s -> retrieve with livecall messges and update ui
 
 
-1)start messages UI 
-2)finish the messages view_model and listener to update UI
 
 
 Try to understaned relationship between server-client for sending messeges and try implementing it to the current project

@@ -120,7 +120,7 @@
                 <TextBlock Text="Email verified:" Foreground="White" FontSize="23" FontWeight="ExtraLight" Margin="320 140 0 0"/>
             </Border>
             <Border Grid.Column="1">
-                <TextBlock Grid.Column="1" Margin="460 140 0 0" Foreground="White" FontSize="23" FontWeight="ExtraLight">
+                <TextBlock Grid.Column="1" Margin="460 135 0 0" Foreground="White" FontSize="23" FontWeight="ExtraLight">
                     <TextBlock.Style>
                         <Style TargetType="TextBlock">
                             <Setter Property="Text" Value="No"/>
@@ -135,7 +135,7 @@
             </Border>
             <Button Grid.Column="1" Content="(verify email)" Height="40" Width="100" Background="Transparent" BorderThickness="0" Foreground="Blue" Padding="0" FontSize="15"
                     FontWeight="Bold"
-                    Margin="400 0 0 225"
+                    Margin="400 -5 0 225"
                     Command="{Binding SendEmailVerificationEmailCommand}">
                 <Button.Style>
                     <Style TargetType="Button">

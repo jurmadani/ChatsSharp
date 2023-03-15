@@ -14,6 +14,7 @@ namespace chatsharp_cs_project.Model
         public string Sender { get; set; }
         public string MessageText { get; set; }
         public string Timestamp { get; set; }
+        public string SenderIsDifferentThenCurrentUser { get; set; }
 
         public MessageModel(string receiver, string sender, string messageText, string timestamp)
         {
@@ -21,6 +22,7 @@ namespace chatsharp_cs_project.Model
             Sender = sender;
             MessageText = messageText;
             Timestamp = timestamp;
+            SenderIsDifferentThenCurrentUser = "null";
         }
     }
 }

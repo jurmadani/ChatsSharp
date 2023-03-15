@@ -21,49 +21,48 @@ using System.Threading.Tasks;
 using Firebase.Database;
 using Newtonsoft.Json.Linq;
 using GalaSoft.MvvmLight.Command;
+using static System.Net.Mime.MediaTypeNames;
+using System.Reactive;
 
 namespace chatsharp_cs_project.ViewModel
 {
     class MessagesViewModel : ViewModelBase
     {
+        public AuthenticationStore _authenticationStore;
         public FirebaseDatabaseConnectionStore _firebaseDatabaseConnection;
         public List<MessageModel> messages { get; set; }
 
         public ObservableCollection<MessageModel> _messages;
-        public ICommand ButtonClick => new ViewModelCommand(PerformButtonClick);
+        public ICommand SendMessageButton => new ViewModelCommand(PerformButtonClick);
+        public RelayCommand TestCommand => new RelayCommand(PerformTestCommand);
+
+        public ObservableCollection<MessageModel> MessageModelPropertiesList { get; set; }
+
+        public ObservableCollection<UserModel> FriendsList { get; set; }
+        public ObservableCollection<MessageModel> MessagesCollection { get; set; }
+
+        public List<String> FriendsUsername;
+
         private int LastMessageIndex { get; set; }
 
         private string _messageFromTextBox;
+
         private string _messageToAppear;
 
-        public List<MessageModel> MessageModelPropertiesList = new List<MessageModel>();
-
-        public ObservableCollection<UserModel> Users { get; set; }
-        public RelayCommand TestCommand { get; private set; }
-
-
-        public MessagesViewModel()
+        private char _testMessage;
+        public char TestMessage
         {
-            _firebaseDatabaseConnection = new FirebaseDatabaseConnectionStore();
-            messages = new List<MessageModel>();
-            _messages = new ObservableCollection<MessageModel>();
-            Users = new ObservableCollection<UserModel>();
-            TestCommand = new RelayCommand(ExecuteTestCommand);
-
-
-            for (int i = 0;i < 2; i++)
+            get
             {
-                UserModel user = new UserModel(i.ToString(), $"Test nr.{i}","test",i,"test-pn","test@yahoo.com");
-                Users.Add(user);
-        
+                return _testMessage;
             }
+            set
+            {
 
-            //LiveCall();
-            //SetListener();
-            //generate();
+                _testMessage = 't';
+                OnPropertyChanged(nameof(TestMessage));
+            }
         }
-
-
         public string MessageFromTextBox
         {
             get { return _messageFromTextBox; }
@@ -84,28 +83,172 @@ namespace chatsharp_cs_project.ViewModel
             }
         }
 
+
+        private int _friendsListCount;
+        public int FriendsListCount
+        {
+            get
+            {
+                return _friendsListCount;
+            }
+            set
+            {
+                _friendsListCount = value;
+                OnPropertyChanged(nameof(FriendsUsername));
+            }
+        }
+
+        UserModel _yourSelectedItem;
+        public UserModel YourSelectedItem
+        {
+            get
+            {
+                return _yourSelectedItem;
+            }
+            set
+            {
+                _yourSelectedItem = value;
+                OnPropertyChanged(nameof(YourSelectedItem));
+            }
+        }
+
+        public MessagesViewModel(AuthenticationStore authenticationStore)
+        {
+            _firebaseDatabaseConnection = new FirebaseDatabaseConnectionStore();
+            messages = new List<MessageModel>();
+            _messages = new ObservableCollection<MessageModel>();
+            FriendsList = new ObservableCollection<UserModel>();
+            _authenticationStore = authenticationStore;
+            FriendsUsername = new List<String>();
+            MessageModelPropertiesList = new ObservableCollection<MessageModel>();
+            MessagesCollection = new ObservableCollection<MessageModel>();
+
+
+
+            UpdateTheListView();
+            LiveCall();
+            _friendsListCount = FriendsList.Count;
+            //SetListener();
+            //generate();
+        }
+
+        private bool PopulateTheFriendsUsernameList()
+        {
+            FriendsUsername.Clear();
+            FirebaseResponse response = _firebaseDatabaseConnection._client.Get("Users/" + _authenticationStore.CurrentUser.DisplayName.ToString() + "/Friends");
+            string json = response.Body.ToString();
+            if (!string.IsNullOrEmpty(json))
+            {
+                var jsonData = JsonConvert.DeserializeObject<JArray>(json);
+                if (jsonData == null)
+                    return false;
+                foreach (var data in jsonData)
+                {
+                    if (data.Path != "[0]")
+                        FriendsUsername.Add(data.Value<String>("Username"));
+                }
+
+            }
+            return true;
+        }
+
+        private bool PopulateTheFriendsListListView()
+        {
+            FriendsList.Clear();
+            foreach (var username in FriendsUsername)
+            {
+                FirebaseResponse response = _firebaseDatabaseConnection._client.Get("Users/");
+                string json = response.Body.ToString();
+                if (!string.IsNullOrEmpty(json))
+                {
+                    var jsonData = JsonConvert.DeserializeObject<dynamic>(json);
+                    if (jsonData == null)
+                        return false;
+                    foreach (var data in jsonData)
+                    {
+                        if (data != null)
+                            if ((string)data.Value["Username"] == username)
+                            {
+                                var email = (string)data.Value["Email"];
+                                var friendsNumber = (int)data.Value["FriendsNumber"];
+                                var id = (string)data.Value["Id"];
+                                var jobTitle = (string)data.Value["JobTitle"];
+                                var phoneNumber = (string)data.Value["PhoneNumber"];
+                                var userUsername = (string)data.Value["Username"];
+                                UserModel newUserModel = new UserModel(id, userUsername, jobTitle, friendsNumber, phoneNumber, email);
+                                FriendsList.Add(newUserModel);
+                            }
+                    }
+
+                }
+            }
+            return true;
+
+        }
+
+        public void UpdateTheListView()
+        {
+            if (PopulateTheFriendsUsernameList() == true && PopulateTheFriendsListListView() == true)
+            {
+                PopulateTheFriendsUsernameList();
+                PopulateTheFriendsListListView();
+            }
+        }
+
+
         public async void LiveCall()
         {
+
+            if (YourSelectedItem == null)
+                YourSelectedItem = FriendsList[0];
             while (true)
             {
+
+                MessageModel message;
                 MessageModelPropertiesList.Clear();
                 FirebaseResponse response = await _firebaseDatabaseConnection._client.GetAsync("Messages/");
                 string json = response.Body.ToString();
                 if (!string.IsNullOrEmpty(json))
                 {
                     var jsonData = JsonConvert.DeserializeObject<dynamic>(json);
-                    foreach (var data in jsonData)
+                    if (jsonData != null)
                     {
-                        if (data != null && (string)data["Receiver"] == "dani")
+                        foreach (var data in jsonData)
                         {
-                            var sender = (string)data["Sender"];
-                            var receiver = (string)data.Receiver;
-                            var text = (string)data.MessageText;
-                            var timestamp = (string)data.Timestamp;
-                            MessageModel message = new MessageModel(receiver, sender, text, timestamp);
-                            MessageModelPropertiesList.Add(message);
-                        }
+                            if (data != null && (_authenticationStore.CurrentUser.DisplayName == (string)data["Sender"] && YourSelectedItem.Username == (string)data.Receiver))
+                            {
+                                message = new MessageModel((string)data.Receiver, (string)data["Sender"], (string)data.MessageText, (string)data.Timestamp);
+                                if (_authenticationStore.CurrentUser.DisplayName == message.Sender)
+                                {
+                                    message.SenderIsDifferentThenCurrentUser = "false";
 
+                                }
+                                else
+                                {
+                                    message.SenderIsDifferentThenCurrentUser = "true";
+                                }
+
+                                MessageModelPropertiesList.Add(message);
+                            }
+
+                            else if (data != null && (_authenticationStore.CurrentUser.DisplayName == (string)data.Receiver && YourSelectedItem.Username == (string)data["Sender"]))
+                            {
+                                message = new MessageModel((string)data.Receiver, (string)data["Sender"], (string)data.MessageText, (string)data.Timestamp);
+                                if (_authenticationStore.CurrentUser.DisplayName == message.Sender)
+                                {
+                                    message.SenderIsDifferentThenCurrentUser = "false";
+
+                                }
+                                else
+                                {
+                                    message.SenderIsDifferentThenCurrentUser = "true";
+                                }
+
+                                MessageModelPropertiesList.Add(message);
+                            }
+
+
+                        }
                     }
 
                 }
@@ -118,40 +261,48 @@ namespace chatsharp_cs_project.ViewModel
         public int GetLastIndexOfMessages()
         {
             LastMessageIndex = 1;
-
-            foreach (var response in (_firebaseDatabaseConnection._client.Get("Messages/")).ResultAs<MessageModel[]>())
+            var reference = _firebaseDatabaseConnection._client.Get("Messages/");
+            if (reference.Body != "null")
             {
-                if (response != null)
-                    ++LastMessageIndex;
+                foreach (var response in (_firebaseDatabaseConnection._client.Get("Messages/")).ResultAs<MessageModel[]>())
+                {
+                    if (response != null)
+                        ++LastMessageIndex;
+                }
+                return LastMessageIndex;
             }
-            return LastMessageIndex;
+            else
+                return 1;
         }
 
         private async void PerformButtonClick(object commandParameter)
         {
             DateTime now = DateTime.Now;
             CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
-            MessageModel MessageModel = new MessageModel("dani", "gabi", MessageFromTextBox, now.ToString());
+            MessageModel MessageModel = new MessageModel(YourSelectedItem.Username.ToString(), _authenticationStore.CurrentUser.DisplayName, MessageFromTextBox, now.ToString());
             await _firebaseDatabaseConnection._client.SetAsync("Messages/" + GetLastIndexOfMessages().ToString(), MessageModel);
             MessageFromTextBox = "";
 
         }
 
-        private void ExecuteTestCommand()
-        {
-       
-        }
-
         private void RefreshList_2()
         {
             MessageToAppear = "";
+            MessagesCollection.Clear();
             foreach (var MessageModel in MessageModelPropertiesList)
             {
                 if (MessageModel != null)
                 {
-                    MessageToAppear += MessageModel.Sender + " says " + MessageModel.MessageText + " at " + MessageModel.Timestamp + "\n";
+                    // MessageToAppear += MessageModel.Sender + " says " + MessageModel.MessageText + " at " + MessageModel.Timestamp + "\n";
+                    // MessageToAppear += MessageModel.Sender + "\n" + MessageModel.MessageText + "\n" + MessageModel.Timestamp + "\n\n--------------------------------------------------";
+                    MessagesCollection.Add(MessageModel);
                 }
             }
+        }
+
+        private void PerformTestCommand()
+        {
+            //LiveCall(YourSelectedItem.Username.ToString());
         }
 
 
