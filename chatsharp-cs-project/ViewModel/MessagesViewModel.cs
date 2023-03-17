@@ -199,7 +199,7 @@ namespace chatsharp_cs_project.ViewModel
         public async void LiveCall()
         {
 
-            if (YourSelectedItem == null)
+            if (YourSelectedItem == null && FriendsList.Count != 0)
                 YourSelectedItem = FriendsList[0];
             while (true)
             {
@@ -215,7 +215,7 @@ namespace chatsharp_cs_project.ViewModel
                     {
                         foreach (var data in jsonData)
                         {
-                            if (data != null && (_authenticationStore.CurrentUser.DisplayName == (string)data["Sender"] && YourSelectedItem.Username == (string)data.Receiver))
+                            if (_authenticationStore.CurrentUser != null && YourSelectedItem != null && data != null && (_authenticationStore.CurrentUser.DisplayName == (string)data["Sender"] && YourSelectedItem.Username == (string)data.Receiver))
                             {
                                 message = new MessageModel((string)data.Receiver, (string)data["Sender"], (string)data.MessageText, (string)data.Timestamp);
                                 if (_authenticationStore.CurrentUser.DisplayName == message.Sender)
@@ -231,7 +231,7 @@ namespace chatsharp_cs_project.ViewModel
                                 MessageModelPropertiesList.Add(message);
                             }
 
-                            else if (data != null && (_authenticationStore.CurrentUser.DisplayName == (string)data.Receiver && YourSelectedItem.Username == (string)data["Sender"]))
+                            else if (YourSelectedItem != null & data != null && (_authenticationStore.CurrentUser.DisplayName == (string)data.Receiver && YourSelectedItem.Username == (string)data["Sender"]))
                             {
                                 message = new MessageModel((string)data.Receiver, (string)data["Sender"], (string)data.MessageText, (string)data.Timestamp);
                                 if (_authenticationStore.CurrentUser.DisplayName == message.Sender)
