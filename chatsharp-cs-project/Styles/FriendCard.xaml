@@ -23,7 +23,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListViewItem">
-                    <Border Background="{TemplateBinding Background}"
+                    <Border
                             Height="50"
                             CornerRadius="4"
                             Margin="0 2 0 2">
@@ -31,7 +31,9 @@
                                     Margin="10 0 0 0">
                             <Border Width="30" Height="30"
                                     Background="CornflowerBlue"
-                                    CornerRadius="25"/>
+                                    CornerRadius="25">
+                                 <Image Source="C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\Images\ProfileIcon.png"/>
+                            </Border>
                             <StackPanel>
                                 <Label Content="{Binding Username}"
                                        Foreground="White"/>
@@ -40,6 +42,7 @@
                                        FontSize="10"/>
                             </StackPanel>
                         </StackPanel>
+                       
 
                     </Border>
                 </ControlTemplate>

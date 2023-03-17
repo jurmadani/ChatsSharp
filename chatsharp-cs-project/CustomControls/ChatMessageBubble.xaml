@@ -26,6 +26,7 @@
                            Foreground="{StaticResource ForegroundLightBrush}"
                            FontFamily="{StaticResource LatoRegular}"
                            />
+               
             </Border>
 
             <!-- Chat message container -->

@@ -4,9 +4,75 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:chatsharp_cs_project.View"
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" xmlns:viewmodel="clr-namespace:chatsharp_cs_project.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:HomePageViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Border Background="Transparent">
-        <TextBlock Text="Coming soon - HOME PAGE VIEW" FontSize="35" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-    </Border>
+    <Grid Margin="0 100 0 0">
+        
+        <Border Background="Transparent">
+            <TextBlock Text="Welcome to ChatSharp" FontSize="35" FontWeight="ExtraLight" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20 0 0"/>
+        </Border>
+        <Border Height="1" Width="100" BorderBrush="White" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left"
+                Margin="30 100 0 0"/>
+        <Border Height="100" Width="1" BorderBrush="White" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left"
+                Margin="30 100 0 0"/>
+        <TextBlock Text="C# WPF chatting application for tech companies. With ChatSharp, you can easily connect with your coworkers, share ideas, collaborate on projects,"
+                   Foreground="White"
+                   FontWeight="Light"
+                 Background="Transparent"
+                   Margin="40 130 0 0"/>
+        <TextBlock Text="and build stronger relationships within your company."
+                   Foreground="White"
+                   FontWeight="Light"
+                 Background="Transparent"
+                   Margin="40 150 0 0"/>
+        <TextBlock Text="ChatSharp offers a sleek and modern interface that lets you customize your chatting experience. You can create your own programmer profile, add"
+                   Foreground="White"
+                   FontWeight="Light"
+                 Background="Transparent"
+                   Margin="40 200 0 0"/>
+        <TextBlock Text="your job title within the company. You can then add other employees of the company and start chatting instantly."
+                   Foreground="White"
+                   FontWeight="Light"
+                 Background="Transparent"
+                   Margin="40 220 0 0"/>
+        <Border Height="1" Width="100" BorderBrush="White" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Margin="0 340 -10 0"/>
+        <Border Height="100" Width="1" BorderBrush="White" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Margin="0 240 -10 0"/>
+        <TextBlock Text="While the ChatSharp application is a powerful demonstration of the capabilities of the .NET framework and the implementation of Google's"
+                   Foreground="White"
+                   FontWeight="Light"
+                 Background="Transparent"
+                   Margin="40 270 0 0"/>
+        <TextBlock Text="Firebase Cloud Backend with C#, it is important to note that real-world chat applications typically require more extensive resources to operate at"
+                   Foreground="White"
+                   FontWeight="Light"
+                 Background="Transparent"
+                   Margin="40 290 0 0"/>
+        <TextBlock Text="scale. Application developed by Jurma Daniel"
+                   Foreground="White"
+                   FontWeight="Light"
+                 Background="Transparent"
+                   Margin="40 310 0 0"/>
+        <TextBlock VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center"
+                   Margin="0 0 180 113">
+    <Hyperlink NavigateUri="https://www.linkedin.com/in/daniel-jurma/"
+               x:Name="Hyperlink_VisitLinkedin"
+               Command="{Binding VisitLinkedinCommand}"
+               CommandParameter="{Binding ElementName=Hyperlink_VisitLinkedin,Path=NavigateUri}">
+        Linkedin Profile
+    </Hyperlink>
+        </TextBlock>
+        <TextBlock Text="Posted on 3/17/2023, 4:15 PM "
+                   FontWeight="ExtraLight"
+                   Foreground="White"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   Margin="0 0 0 50"/>
+
+
+    </Grid>
+   
 </UserControl>
