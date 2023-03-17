@@ -1,7 +1,7 @@
 
-# ChatSharp 
+# ChatSharp
 
-ChatSharp is a chat application built with C# WPF, using .NET 7.0 framework and Visual Studio 2022. It allows users to chat with one another, create a profile, and verify their email address. The application uses Google's Firebase Backend as a Service for user authentication and Firebase's Realtime-Database to store user messages.
+ChatSharp is a freeware chat application, with no nags, no ads, built with C# WPF, using .NET 7.0 framework and Visual Studio 2022. It allows users to chat with one another, create a profile, and verify their email address. The application uses Google's Firebase Backend as a Service for user authentication and Firebase's Realtime-Database to store user messages.
 
 
 ## How to Use
