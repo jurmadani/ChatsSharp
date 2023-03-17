@@ -1,0 +1,20 @@
+﻿chatsharp-cs-project
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Release\net7.0-windows\
+chatsharp_cs_project
+none
+false
+TRACE;RELEASE;NET;NET7_0;NETCOREAPP
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\App.xaml
+21-1461140307
+
+45-1308876619
+254-820046116
+CustomControls\BindablePasswordBox.xaml;CustomControls\ChatMessageBubble.xaml;MainWindow.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Styles\FriendCard.xaml;Styles\HomeViewButtonStyles.xaml;Styles\UIColors.xaml;View\ChatMessageListItemControl.xaml;View\EditProfileView.xaml;View\FriendsView.xaml;View\GroupsView.xaml;View\HomePageView.xaml;View\HomeView.xaml;View\LoginView.xaml;View\MessagesView.xaml;View\PasswordResetView.xaml;View\RegisterView.xaml;View\SettingsView.xaml;View\SplashScreenView.xaml;View\ViewProfileView.xaml;
+
+False
+

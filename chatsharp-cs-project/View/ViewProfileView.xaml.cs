@@ -1,4 +1,5 @@
-﻿using System;
+﻿using chatsharp_cs_project.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,6 @@ namespace chatsharp_cs_project.View
         {
             InitializeComponent();
         }
-    }
+      
+}
 }

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\App.xaml
-201947268551
+21-1461140307
 
-43-2018852010
+45372387907
 254-820046116
-CustomControls\BindablePasswordBox.xaml;CustomControls\ChatMessageBubble.xaml;MainWindow.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Styles\FriendCard.xaml;Styles\HomeViewButtonStyles.xaml;Styles\UIColors.xaml;View\ChatMessageListItemControl.xaml;View\FriendsView.xaml;View\GroupsView.xaml;View\HomePageView.xaml;View\HomeView.xaml;View\LoginView.xaml;View\MessagesView.xaml;View\PasswordResetView.xaml;View\RegisterView.xaml;View\SettingsView.xaml;View\SplashScreenView.xaml;View\ViewProfileView.xaml;
+CustomControls\BindablePasswordBox.xaml;CustomControls\ChatMessageBubble.xaml;MainWindow.xaml;Styles\Colors.xaml;Styles\Fonts.xaml;Styles\FriendCard.xaml;Styles\HomeViewButtonStyles.xaml;Styles\UIColors.xaml;View\ChatMessageListItemControl.xaml;View\EditProfileView.xaml;View\FriendsView.xaml;View\GroupsView.xaml;View\HomePageView.xaml;View\HomeView.xaml;View\LoginView.xaml;View\MessagesView.xaml;View\PasswordResetView.xaml;View\RegisterView.xaml;View\SettingsView.xaml;View\SplashScreenView.xaml;View\ViewProfileView.xaml;
 
 False
 

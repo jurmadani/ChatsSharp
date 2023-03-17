@@ -50,12 +50,6 @@ namespace chatsharp_cs_project.ViewModel
             ExecuteShowHomeViewCommand(null);
         }
 
-        private void LogoutFunction(object obj)
-        {
-            MessageBox.Show("LOGOUT SUCCESFULLY");
-            Application.Current.Shutdown();
-        }
-
         private void ExecuteShowHomeViewCommand(object obj)
         {
             CurrentChildView = new HomePageViewModel();

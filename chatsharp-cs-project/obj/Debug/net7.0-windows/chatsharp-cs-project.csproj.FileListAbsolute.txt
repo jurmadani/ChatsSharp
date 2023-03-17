@@ -114,3 +114,5 @@ C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\D
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\chatsharp-cs-project.pdb
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\chatsharp-cs-project.genruntimeconfig.cache
 C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\ref\chatsharp-cs-project.dll
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\EditProfileView.g.cs
+C:\Users\Dani Jurma\source\repos\chatsharp-cs-project\chatsharp-cs-project\obj\Debug\net7.0-windows\View\EditProfileView.baml
