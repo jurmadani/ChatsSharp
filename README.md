@@ -31,6 +31,9 @@ Users can then start chatting with one another by selecting a user from the list
 - Firebase backend for security and scalability
 - Clean and modern user interface with XAML and Photoshop icons
 
+## Reminder
+While the ChatSharp application is a powerful demonstration of the capabilities of the .NET framework and the implementation of Google's Firebase Cloud Backend with C#, it is important to note that real-world chat applications typically require more extensive resources to operate at scale.
+
 
 ## Deployment
 
