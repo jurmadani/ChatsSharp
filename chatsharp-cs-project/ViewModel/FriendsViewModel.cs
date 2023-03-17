@@ -73,7 +73,7 @@ namespace chatsharp_cs_project.ViewModel
                 foreach (var data in jsonData)
                 {
                     string UsernameFromJSON = (string)data.Value["Username"];
-                    if (UsernameFromJSON.Contains(Username) == true)
+                    if (UsernameFromJSON.Contains(Username) == true && UsernameFromJSON != null)
                     {
                         ListOfPotentialFriends.Add((string)UsernameFromJSON);
                     }
